@@ -66,7 +66,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdro
 
 /* left media */
 .media .frame{border-radius:18px;overflow:hidden;position:relative;aspect-ratio:1/1;background:linear-gradient(180deg,#fff,#f5f8fc);border:1px solid var(--line-l)}
-.media .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:18px}
+.media .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .pack{font-size:.78rem;color:var(--muted-2);margin:10px 2px 0}
 .tested{margin-top:22px;border:1px solid var(--line-l);border-radius:16px;padding:22px 24px;display:flex;align-items:center;gap:20px}
 .tested .tk{width:44px;height:44px;flex-shrink:0;border:2px solid var(--sp-red);border-radius:9px;display:grid;place-items:center;color:var(--sp-red)}
@@ -145,6 +145,20 @@ footer .fmark{height:30px;width:auto;display:inline-block;margin-bottom:6px}
 footer .ftag{font-family:'Roboto Slab',serif;font-weight:700;font-size:.6rem;color:#fff;letter-spacing:.02em}
 footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9fb0c6}footer .fl a:hover{color:var(--sp-red)}
 
+.media{position:relative}
+.img-badge{position:absolute;top:-14px;right:-13px;z-index:8;width:68px;height:80px;filter:drop-shadow(0 7px 14px rgba(16,41,74,.34))}
+.img-badge .ib-fb{width:100%;height:100%;background:#e3f4ef;border:1px solid #b3e3d5;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:7px 5px;text-align:center}
+.img-badge .bi{color:#26A98D;line-height:0}.img-badge .bi svg{width:27px;height:27px}
+.img-badge b{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.68rem;color:#1C8B73;line-height:1}
+.img-badge i{font-family:'Epilogue',sans-serif;font-weight:600;font-size:.46rem;letter-spacing:.13em;color:#5a7183;font-style:normal;line-height:1.6}
+.img-badge img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.whymini{margin-top:22px;border:1px solid var(--line-l);border-radius:16px;padding:20px 22px}
+.whymini h3{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.05rem;letter-spacing:.02em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+.whymini .wm{display:flex;gap:11px;align-items:flex-start;font-size:.85rem;color:var(--body);line-height:1.45;margin-bottom:12px}
+.whymini .wm:last-child{margin-bottom:0}
+.whymini .wm b{color:var(--ink);font-family:'Epilogue',sans-serif;font-weight:700}
+.whymini .wmi{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--bg-soft);display:grid;place-items:center;margin-top:1px;color:#E0312A}
+.whymini .wmi svg{width:15px;height:15px}
 .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy-900);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:.92rem;letter-spacing:.02em;padding:13px 22px;border-radius:10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:100;display:flex;align-items:center;gap:9px}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast svg{width:17px;height:17px;color:#4ade80}
@@ -194,17 +208,13 @@ footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9f
     <!-- MEDIA -->
     <div class="media">
       <div class="frame"><img src="assets/product-superhot.png" alt="WasabiRub Super Hot jar"></div>
+      <div class="img-badge"><div class="ib-fb"><span class="bi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.5l7 2.4v5.1c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V4.9z"/><path d="M8.7 11.7l2.2 2.2 4.4-4.4"/></svg></span><b>TruShield</b><i>CERTIFIED</i></div><img src="assets/trushield-certified.png" alt="TruShield Certified" onerror="this.remove()"></div>
       <div class="pack">*Packaging may vary.</div>
-      <div class="tested">
-        <span class="tk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 5h16v16H4z"/><path d="M8 12l3 3 5-6"/></svg></span>
-        <div>
-          <h4>Third-Party Tested for Safety and Clean Substances</h4>
-          <p>Every batch is tested by independent, ISO-accredited labs to ensure it's free from harmful contaminants and meets our highest standards.</p>
-        </div>
-        <div class="badge trushield">
-          <span class="ts-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2.5l7 2.4v5.1c0 4.6-3 7.7-7 9-4-1.3-7-4.4-7-9V4.9z"/><path d="M8.7 11.7l2.2 2.2 4.4-4.4"/></svg></span>
-          <span class="ts-t1">TruShield</span><span class="ts-t2">CERTIFIED</span>
-        </div>
+      <div class="whymini">
+        <h3>Why athletes choose Super Hot</h3>
+        <div class="wm"><span class="wmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 3 4 6 2 9 3-1 4-4 3-7 3 2 4 6 2 10a7 7 0 01-14 0c-1-4 1-8 4-10-1 3 0 5 1 6-1-3 0-6 2-8z"/></svg></span><div><b>Serious warming relief</b> — Our strongest deep-heat formula.</div></div>
+        <div class="wm"><span class="wmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6M7 8v8M17 8v8M20 9v6M7 12h10"/></svg></span><div><b>For stubborn soreness</b> — Relaxes tight, tough muscle tension.</div></div>
+        <div class="wm"><span class="wmi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 2.5v5c0 5-3 8-7 9.5-4-1.5-7-4.5-7-9.5v-5z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Clean &amp; tested</b> — Third-party tested &amp; TruShield Certified.</div></div>
       </div>
     </div>
 
@@ -247,19 +257,6 @@ footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9f
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section class="band">
-  <div class="wrap">
-    <h2>Why athletes choose Super Hot</h2>
-    <p>The strongest rub we make — for deep, stubborn tension that needs serious warming relief.</p>
-    <div class="why-grid">
-      <div class="why-card"><div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2v20M4 6l16 12M20 6L4 18"/></svg></div><h4>Deep, fast cooling</h4><p>A high-strength 16% menthol formula delivers an immediate cooling sensation right where it hurts.</p></div>
-      <div class="why-card"><div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div><h4>Ideal after activity</h4><p>Perfect for acute aches, swelling, and post-workout soreness when you need relief now.</p></div>
-      <div class="why-card"><div class="wic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l7 2.5v5c0 5-3 8-7 9.5-4-1.5-7-4.5-7-9.5v-5z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Clean &amp; tested</h4><p>Third-party tested and TruShield Certified so you always know what's going on your skin.</p></div>
-    </div>
   </div>
 </section>
 

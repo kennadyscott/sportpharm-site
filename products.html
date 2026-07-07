@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products — Topical Recovery | SportPharm</title>
+<title>Products — Topical Rubs | SportPharm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Epilogue:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Epilogue:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --sp-red:#E0312A;--sp-red-2:#c62a23;
-  --navy-900:#0B1E3B;--navy-800:#122A4E;
+  --navy-900:#0B1E3B;--navy-800:#122A4E;--navy-hero:#0C1F3E;
   --ink:#16294A;--body:#5A6B82;--muted-2:#8395AC;
   --line-l:#E5EAF1;--bg:#ffffff;--bg-soft:#F4F7FB;--maxw:1280px;
-  --cool:#1C9BD1;--hot:#F5701A;
+  --green:#4E9A2E;--blue:#1E73E8;
   --shadow:0 20px 50px -24px rgba(16,41,74,.30);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -22,13 +22,12 @@ a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 .eyebrow{font-family:'Epilogue',sans-serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;color:var(--sp-red)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;padding:.85rem 1.4rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:.16s;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:'Epilogue',sans-serif;font-weight:800;font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;padding:.9rem 1.6rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:.16s;white-space:nowrap}
 .btn svg{width:16px;height:16px}
 .btn-red{background:var(--sp-red);color:#fff}.btn-red:hover{background:var(--sp-red-2);transform:translateY(-1px)}
-.btn-out{background:#fff;color:var(--ink);border-color:var(--line-l)}.btn-out:hover{border-color:#c3cede}
 
 /* header */
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
 .nav{display:flex;align-items:center;gap:12px;height:74px}
 .logo{display:flex;flex-direction:column;line-height:1;flex-shrink:0}
 .logo img{height:30px;width:auto;display:block;flex-shrink:0}
@@ -56,79 +55,101 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdro
 .cart-count.show{display:flex}
 .menu-btn{display:none}
 
-/* hero */
-.hero{background:radial-gradient(80% 90% at 88% 0%, #eef4fb, transparent 60%),linear-gradient(180deg,#fff,var(--bg-soft));border-bottom:1px solid var(--line-l);padding:56px 0 50px}
-.hero h1{font-family:'Epilogue',sans-serif;font-weight:800;font-size:2.9rem;line-height:1.04;letter-spacing:-.02em;color:var(--ink);margin:14px 0 14px;max-width:640px}
-.hero .lead{font-size:1.12rem;color:var(--body);max-width:560px;margin-bottom:18px}
-.pros{display:flex;align-items:center;gap:10px;font-family:'Epilogue',sans-serif;font-weight:600;font-size:.82rem;color:var(--muted-2)}
-.pros b{color:var(--ink)}
+/* HERO (dark) */
+.phero{background:radial-gradient(90% 100% at 80% 0%, #17356a, transparent 55%),linear-gradient(120deg,var(--navy-hero),#0a1830);color:#fff;overflow:hidden}
+.phero-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;min-height:440px}
+.phero-l{padding:60px 20px 60px 0}
+.phero h1{font-family:'Epilogue',sans-serif;font-weight:900;font-size:3.7rem;line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:10px}
+.phero h1 .r{color:var(--sp-red)}
+.phero .uline{width:70px;height:5px;background:var(--sp-red);border-radius:3px;margin:14px 0 22px}
+.phero p{font-size:1.12rem;color:#c5d1e2;max-width:440px;margin-bottom:28px}
+.phero-r{position:relative;align-self:stretch;min-height:340px}
+.phero-r .lineup{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:0}
+.phero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center}
+.jar{filter:drop-shadow(0 18px 26px rgba(0,0,0,.5))}
 
-/* product grid */
-.section{padding:60px 0}
-.sec-h{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.7rem;color:var(--ink);letter-spacing:-.01em}
-.sec-sub{color:var(--body);margin:8px 0 30px;max-width:560px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.pcard{background:#fff;border:1px solid var(--line-l);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:.18s}
+/* features */
+.features{border-bottom:1px solid var(--line-l)}
+.features-in{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:34px 0}
+.feat{text-align:center;padding:6px 26px;border-right:1px solid var(--line-l)}
+.feat:last-child{border-right:0}
+.feat .fic{color:var(--navy-900);margin-bottom:12px;display:flex;justify-content:center}
+.feat h4{font-family:'Epilogue',sans-serif;font-weight:800;font-size:.92rem;letter-spacing:.03em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.feat p{font-size:.85rem;color:var(--body)}
+
+/* core products */
+.section{padding:64px 0}
+.center-h{text-align:center;margin-bottom:38px}
+.center-h h2{font-family:'Epilogue',sans-serif;font-weight:900;font-size:2.1rem;text-transform:uppercase;color:var(--ink);letter-spacing:.01em;display:inline-block}
+.center-h h2 .u{display:block;width:120px;height:4px;background:var(--sp-red);border-radius:3px;margin:10px auto 0}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.pcard{background:#fff;border:1px solid var(--line-l);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 10px 30px -22px rgba(16,41,74,.4);transition:.18s}
 .pcard:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
-.pcard .pimg{height:230px;position:relative;display:grid;place-items:center;overflow:hidden}
-.pcard .pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pcard .pimg .tube{color:rgba(255,255,255,.92);filter:drop-shadow(0 8px 16px rgba(0,0,0,.25));z-index:1}
-.wasabi .pimg{background:linear-gradient(150deg,#E0312A,#a3160f)}
-.superhot .pimg{background:linear-gradient(150deg,#F5701A,#d5241a)}
-.icetra .pimg{background:linear-gradient(150deg,#28b6e6,#0d6f96)}
-.ribbon{position:absolute;top:14px;left:14px;z-index:2;background:var(--navy-900);color:#fff;font-family:'Epilogue',sans-serif;font-weight:800;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:6px;display:flex;align-items:center;gap:5px}
-.pbadges{position:absolute;top:14px;right:14px;z-index:2;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
-.pbadge{background:rgba(255,255,255,.92);color:var(--ink);font-family:'Epilogue',sans-serif;font-weight:800;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;padding:4px 9px;border-radius:5px;display:flex;align-items:center;gap:4px}
-.pbadge svg{width:11px;height:11px;color:var(--sp-red)}
-.pbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-.pbody .cat{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:6px}
-.pbody h3{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.35rem;color:var(--ink);margin-bottom:4px}
-.pbody .desc{font-size:.9rem;color:var(--body);margin:8px 0 14px}
-.stars{display:flex;align-items:center;gap:7px;margin-bottom:14px}
-.stars .s{color:#F5A623;display:flex;gap:1px}.stars .s svg{width:15px;height:15px}
-.stars .rc{font-size:.8rem;color:var(--muted-2);font-weight:600}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
-.tag{font-family:'Epilogue',sans-serif;font-weight:600;font-size:.72rem;padding:4px 10px;border-radius:999px;background:var(--bg-soft);border:1px solid var(--line-l);color:var(--ink)}
-.tag.cool{color:var(--cool);border-color:#bce4f4;background:#eef9fd}
-.tag.hot{color:var(--hot);border-color:#f8d9bf;background:#fff2e8}
-.pfoot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;border-top:1px solid var(--line-l)}
-.price{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink)}
-.price small{font-size:.78rem;color:var(--muted-2);font-weight:600}
-.addbtn{min-width:132px}
-.addbtn.added{background:#1c8a4a}
+.ptag{text-align:center;font-family:'Epilogue',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;padding:8px}
+.wasabi .ptag{background:var(--green)}
+.icetra .ptag{background:var(--blue)}
+.superhot .ptag{background:var(--sp-red)}
+.pimg{height:250px;position:relative;display:grid;place-items:center;background:linear-gradient(180deg,#fff,var(--bg-soft))}
+.pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:14px}
+.pbody{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.pbody h3{font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.4rem;text-transform:uppercase;color:var(--ink);margin-bottom:10px}
+.pbody .desc{font-size:.9rem;color:var(--body);margin-bottom:16px}
+.blist{list-style:none;margin-bottom:20px}
+.blist li{display:flex;gap:9px;align-items:flex-start;font-size:.88rem;color:var(--ink);font-weight:500;margin-bottom:9px}
+.blist .ck{flex-shrink:0;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;margin-top:1px}
+.blist .ck svg{width:11px;height:11px;color:#fff}
+.wasabi .ck{background:var(--green)}.icetra .ck{background:var(--blue)}.superhot .ck{background:var(--sp-red)}
+.pprice{font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.7rem;color:var(--ink);margin:auto 0 14px}
+.addbtn{width:100%}.addbtn.added{background:#1c8a4a}
+.learn{display:flex;align-items:center;justify-content:center;gap:6px;font-family:'Epilogue',sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin-top:14px}
+.learn:hover{color:var(--sp-red)}.learn svg{width:13px;height:13px}
 
-/* comparison */
-.compare{background:var(--bg-soft);border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
-.scale{display:flex;align-items:stretch;gap:16px;margin-top:8px}
-.scale .col{flex:1;background:#fff;border:1px solid var(--line-l);border-radius:14px;padding:22px;text-align:center}
-.scale .col .lvl{font-family:'Epilogue',sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px}
-.scale .col.c1 .lvl{color:var(--cool)}.scale .col.c2 .lvl{color:var(--sp-red)}.scale .col.c3 .lvl{color:var(--hot)}
-.scale .dot{width:46px;height:46px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;color:#fff}
-.scale .c1 .dot{background:var(--cool)}.scale .c2 .dot{background:var(--sp-red)}.scale .c3 .dot{background:var(--hot)}
-.scale .col h4{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.1rem;color:var(--ink);margin-bottom:4px}
-.scale .col p{font-size:.86rem;color:var(--body);margin-bottom:12px}
-.scale .col a{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.8rem;color:var(--sp-red)}
+/* quality strip */
+.quality{padding:0 0 64px}
+.quality-in{background:var(--bg-soft);border:1px solid var(--line-l);border-radius:16px;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:28px 34px}
+.qitem{display:flex;gap:16px;align-items:center}
+.qitem .qic{flex-shrink:0;color:var(--navy-900)}
+.qitem .flag{width:44px;height:30px;border-radius:4px;overflow:hidden;flex-shrink:0;border:1px solid var(--line-l)}
+.qitem b{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);display:block;margin-bottom:3px}
+.qitem span{font-size:.86rem;color:var(--body)}
 
-/* trust band */
-.trust{background:radial-gradient(80% 130% at 85% 50%, rgba(224,49,42,.16), transparent 55%),linear-gradient(120deg,var(--navy-900),#0a1830);color:#fff}
-.trust-in{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;padding:52px 0}
-.trust-in .t{display:flex;gap:13px;align-items:flex-start}
-.trust-in .t .ic{color:var(--sp-red);flex-shrink:0}
-.trust-in .t b{font-family:'Epilogue',sans-serif;font-weight:800;color:#fff;display:block;font-size:1rem;margin-bottom:3px}
-.trust-in .t span{font-size:.88rem;color:#b9c6da}
+/* ask brandon */
+.askb{background:radial-gradient(70% 130% at 12% 50%, rgba(224,49,42,.16), transparent 55%),linear-gradient(120deg,var(--navy-900),#0a1830);color:#fff}
+.askb-in{display:grid;grid-template-columns:auto 1.1fr 1fr;gap:34px;align-items:center;padding:44px 0}
+.askb-photo{width:150px;height:150px;border-radius:50%;border:3px solid var(--sp-red);overflow:hidden;background:radial-gradient(circle at 50% 30%,#24405f,#0f2036);position:relative;flex-shrink:0}
+.askb-photo img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:118%;max-width:none}
+.askb-l h3{font-family:'Epilogue',sans-serif;font-weight:900;font-size:1.9rem;text-transform:uppercase;margin-bottom:10px}
+.askb-l h3 .r{color:var(--sp-red)}
+.askb-l p{color:#c5d1e2;font-size:.95rem;max-width:340px;margin-bottom:18px}
+.askb-q{border-left:2px solid rgba(255,255,255,.15);padding-left:26px}
+.askb-q .qm{font-family:'Roboto Slab',serif;font-weight:800;color:var(--sp-red);font-size:2.2rem;line-height:.5}
+.askb-q blockquote{font-size:1.2rem;font-weight:500;font-style:italic;line-height:1.4;margin:10px 0 12px}
+.askb-q .sig{font-family:'Roboto Slab',serif;font-weight:700;color:#fff;font-size:1.05rem}
 
-footer{background:#081428;padding:40px 0;text-align:center}
+/* footer trust bar */
+.ftrust{border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l)}
+.ftrust-in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 0}
+.fitem{display:flex;gap:13px;align-items:center;justify-content:center}
+.fitem .fic{color:var(--sp-red);flex-shrink:0}
+.fitem b{font-family:'Epilogue',sans-serif;font-weight:800;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);display:block}
+.fitem span{font-size:.78rem;color:var(--body)}
+
+footer{background:#081428;padding:38px 0;text-align:center}
 footer .fmark{height:30px;width:auto;display:inline-block;margin-bottom:6px}
 footer .ftag{font-family:'Roboto Slab',serif;font-weight:700;font-size:.6rem;color:#fff;letter-spacing:.02em}
-footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9fb0c6}footer .fl a:hover{color:var(--sp-red)}
+footer .fl{margin-top:16px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9fb0c6}footer .fl a:hover{color:var(--sp-red)}
 
 .toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy-900);color:#fff;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.88rem;padding:13px 22px;border-radius:10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s;z-index:100;display:flex;align-items:center;gap:9px}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast svg{width:17px;height:17px;color:#4ade80}
 
-@media(max-width:1120px){.mainnav,.nav-caps{display:none}.menu-btn{display:grid}}
-@media(max-width:980px){.pgrid{grid-template-columns:1fr 1fr}.scale{flex-direction:column}.trust-in{grid-template-columns:1fr}}
-@media(max-width:640px){.pgrid{grid-template-columns:1fr}.hero h1{font-size:2.2rem}}
+@media(max-width:1120px){.mainnav,.nav-caps{display:none}.menu-btn{display:grid}
+  .phero-grid{grid-template-columns:1fr}.phero-l{padding:48px 0 20px}.phero-r{min-height:280px}
+  .features-in{grid-template-columns:1fr 1fr;gap:24px}.feat{border-right:0}
+  .pgrid{grid-template-columns:1fr}.quality-in{grid-template-columns:1fr}
+  .askb-in{grid-template-columns:1fr;text-align:center;justify-items:center}.askb-q{border-left:0;padding-left:0}
+  .ftrust-in{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.phero h1{font-size:2.6rem}.features-in{grid-template-columns:1fr}.ftrust-in{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -162,80 +183,98 @@ footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9f
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">SportPharm Topicals</div>
-    <h1>Targeted relief you can rub right in.</h1>
-    <p class="lead">Professional-grade topical pain relief for muscles and joints — the same formulas trusted in training rooms nationwide.</p>
-    <div class="pros"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sp-red)" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg> <span>Trusted by pros across the <b>NFL, NBA, MLB, Olympic &amp; collegiate</b> teams</span></div>
+<section class="phero">
+  <div class="wrap phero-grid">
+    <div class="phero-l">
+      <h1>Targeted Relief.<br><span class="r">Proven Results.</span></h1>
+      <div class="uline"></div>
+      <p>Our topical rubs are trusted by athletes and professionals to support recovery, reduce soreness, and keep you moving.</p>
+      <a class="btn btn-red" href="#core">Shop All Products</a>
+    </div>
+    <div class="phero-r">
+      <div class="lineup">
+        <svg class="jar" width="150" height="200" viewBox="0 0 120 170" style="margin-right:-18px"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#4E9A2E"/><rect x="24" y="60" width="72" height="70" fill="rgba(0,0,0,.16)"/><text x="60" y="82" fill="#fff" font-family="Epilogue" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">WASABI</text><text x="60" y="96" fill="#fff" font-family="Epilogue" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">RUB</text></svg>
+        <svg class="jar" width="160" height="214" viewBox="0 0 120 170" style="z-index:2"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#1E73E8"/><rect x="24" y="60" width="72" height="70" fill="rgba(0,0,0,.16)"/><text x="60" y="82" fill="#fff" font-family="Epilogue" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">ICETRA</text><text x="60" y="96" fill="#fff" font-family="Epilogue" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">RUB</text></svg>
+        <svg class="jar" width="150" height="200" viewBox="0 0 120 170" style="margin-left:-18px"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#E0312A"/><rect x="24" y="56" width="72" height="78" fill="rgba(0,0,0,.18)"/><text x="60" y="76" fill="#fff" font-family="Epilogue" font-weight="800" font-size="8.5" text-anchor="middle" letter-spacing="1">WASABI RUB</text><text x="60" y="90" fill="#fff" font-family="Epilogue" font-weight="900" font-size="9.5" text-anchor="middle" letter-spacing="1">SUPER HOT</text></svg>
+      </div>
+      <img src="assets/product-lineup.png" alt="SportPharm WasabiRub, IcetraRub and WasabiRub Super Hot jars" onerror="this.remove()">
+    </div>
   </div>
 </section>
 
-<!-- ============ PRODUCTS ============ -->
-<section class="section">
+<!-- ============ FEATURES ============ -->
+<section class="features">
+  <div class="wrap features-in">
+    <div class="feat"><div class="fic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 1v3M12 20v3M1 12h3M20 12h3"/></svg></div><h4>Targeted Relief</h4><p>Fast-acting rubs that soothe sore muscles and joints.</p></div>
+    <div class="feat"><div class="fic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h4>Trusted Formulas</h4><p>Developed with proven ingredients for athletes and active lifestyles.</p></div>
+    <div class="feat"><div class="fic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l2-5 3 10 2-7 2 2h5"/></svg></div><h4>Performance Driven</h4><p>Support recovery so you can perform at your best, every day.</p></div>
+    <div class="feat"><div class="fic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></div><h4>Professional Grade</h4><p>Used and recommended by healthcare and sports medicine professionals.</p></div>
+  </div>
+</section>
+
+<!-- ============ CORE PRODUCTS ============ -->
+<section class="section" id="core">
   <div class="wrap">
-    <div class="sec-h">Shop Recovery Topicals</div>
-    <p class="sec-sub">Three formulas, one mission: get you back to what you love. Cool it, heat it, or get the best of both.</p>
+    <div class="center-h"><h2>Our Core Topical Rubs<span class="u"></span></h2></div>
     <div class="pgrid">
 
-      <!-- WasabiRub -->
       <div class="pcard wasabi" id="wasabirub">
+        <div class="ptag">Soothing Relief</div>
         <div class="pimg">
-          <span class="ribbon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg> Best Seller</span>
-          <div class="pbadges"><span class="pbadge">OTC</span><span class="pbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> TruShield</span></div>
-          <svg class="tube" width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3h8v3l-1 2v12a2 2 0 01-2 2h-2a2 2 0 01-2-2V8L8 6z"/><path d="M10 11h4"/></svg>
-          <img src="assets/product-wasabirub.png" alt="WasabiRub" onerror="this.remove()">
+          <svg class="jar" width="150" height="200" viewBox="0 0 120 170"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#4E9A2E"/><rect x="24" y="60" width="72" height="70" fill="rgba(0,0,0,.16)"/><text x="60" y="80" fill="#fff" font-family="Epilogue" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1">WASABI</text><text x="60" y="94" fill="#fff" font-family="Epilogue" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1">RUB</text><text x="60" y="112" fill="rgba(255,255,255,.7)" font-family="Inter" font-size="5" text-anchor="middle" letter-spacing="1">TOPICAL ANALGESIC</text></svg>
+          <img src="assets/product-wasabi.png" alt="WasabiRub" onerror="this.remove()">
         </div>
         <div class="pbody">
-          <div class="cat">Sports Topical Pain Relief Gel</div>
-          <h3>WasabiRub&trade;</h3>
-          <div class="stars"><span class="s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></span><span class="rc">5.0 (128)</span></div>
-          <div class="desc">Three-way relief that cools on contact, then warms deep — our signature formula and #1 seller.</div>
-          <div class="tags"><span class="tag cool">Menthol</span><span class="tag hot">Capsaicin</span><span class="tag">Methyl Salicylate</span></div>
-          <div class="pfoot">
-            <div class="price">$29.95</div>
-            <button class="btn btn-red addbtn" data-name="WasabiRub">Add to Cart</button>
-          </div>
+          <h3>Wasabi Rub</h3>
+          <div class="desc">A soothing blend of Wasabi, Menthol and natural botanicals that helps ease muscle soreness and supports recovery.</div>
+          <ul class="blist">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Soothes sore muscles &amp; joints</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Fast acting &amp; long lasting</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Great for daily use</li>
+          </ul>
+          <div class="pprice">$24.99</div>
+          <button class="btn btn-red addbtn" data-name="Wasabi Rub">Add to Cart</button>
+          <a class="learn" href="#">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
-      <!-- IcetraRub -->
       <div class="pcard icetra" id="icetrarub">
+        <div class="ptag">Cooling Relief</div>
         <div class="pimg">
-          <div class="pbadges"><span class="pbadge">OTC</span></div>
-          <svg class="tube" width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 4h10v3a3 3 0 01-1 2v10a2 2 0 01-2 2h-4a2 2 0 01-2-2V9a3 3 0 01-1-2z"/><path d="M12 12v4M10 14h4"/></svg>
-          <img src="assets/product-icetrarub.png" alt="IcetraRub" onerror="this.remove()">
+          <svg class="jar" width="150" height="200" viewBox="0 0 120 170"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#1E73E8"/><rect x="24" y="60" width="72" height="70" fill="rgba(0,0,0,.16)"/><text x="60" y="80" fill="#fff" font-family="Epilogue" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1">ICETRA</text><text x="60" y="94" fill="#fff" font-family="Epilogue" font-weight="800" font-size="10" text-anchor="middle" letter-spacing="1">RUB</text><text x="60" y="112" fill="rgba(255,255,255,.7)" font-family="Inter" font-size="5" text-anchor="middle" letter-spacing="1">TOPICAL ANALGESIC</text></svg>
+          <img src="assets/product-icetra.png" alt="IcetraRub" onerror="this.remove()">
         </div>
         <div class="pbody">
-          <div class="cat">16% Menthol Cooling Cream</div>
-          <h3>IcetraRub&trade;</h3>
-          <div class="stars"><span class="s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" opacity=".4"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></span><span class="rc">4.6 (74)</span></div>
-          <div class="desc">Fast, deep cooling with a high-strength 16% menthol formula for acute aches and inflammation.</div>
-          <div class="tags"><span class="tag cool">Cooling</span><span class="tag cool">16% Menthol</span><span class="tag">Non-greasy</span></div>
-          <div class="pfoot">
-            <div class="price">$39.95</div>
-            <button class="btn btn-red addbtn" data-name="IcetraRub">Add to Cart</button>
-          </div>
+          <h3>Icetra Rub</h3>
+          <div class="desc">A powerful cooling rub with Menthol and Arnica to help reduce inflammation and relieve sore muscles.</div>
+          <ul class="blist">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Cooling sensation for fast relief</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Helps reduce inflammation</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Ideal after intense activity</li>
+          </ul>
+          <div class="pprice">$24.99</div>
+          <button class="btn btn-red addbtn" data-name="Icetra Rub">Add to Cart</button>
+          <a class="learn" href="#">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
-      <!-- WasabiRub Super Hot -->
       <div class="pcard superhot" id="superhot">
+        <div class="ptag">Maximum Relief</div>
         <div class="pimg">
-          <div class="pbadges"><span class="pbadge">OTC</span></div>
-          <svg class="tube" width="86" height="86" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 3h8v3l-1 2v12a2 2 0 01-2 2h-2a2 2 0 01-2-2V8L8 6z"/><path d="M12 10c1.5 1.5 1.5 3 0 4.5-1.5-1.5-1.5-3 0-4.5z"/></svg>
-          <img src="assets/product-wasabirub-superhot.png" alt="WasabiRub Super Hot" onerror="this.remove()">
+          <svg class="jar" width="150" height="200" viewBox="0 0 120 170"><rect x="30" y="16" width="60" height="18" rx="5" fill="#191919"/><ellipse cx="60" cy="16" rx="30" ry="7" fill="#2b2b2b"/><rect x="24" y="32" width="72" height="126" rx="12" fill="#E0312A"/><rect x="24" y="56" width="72" height="78" fill="rgba(0,0,0,.18)"/><text x="60" y="74" fill="#fff" font-family="Epilogue" font-weight="800" font-size="9" text-anchor="middle" letter-spacing="1">WASABI RUB</text><text x="60" y="90" fill="#fff" font-family="Epilogue" font-weight="900" font-size="11" text-anchor="middle" letter-spacing="1">SUPER HOT</text><text x="60" y="112" fill="rgba(255,255,255,.75)" font-family="Inter" font-size="5" text-anchor="middle" letter-spacing="1">TOPICAL ANALGESIC</text></svg>
+          <img src="assets/product-superhot.png" alt="WasabiRub Super Hot" onerror="this.remove()">
         </div>
         <div class="pbody">
-          <div class="cat">Extra-Strength Heat Gel</div>
-          <h3>WasabiRub&trade; Super Hot</h3>
-          <div class="stars"><span class="s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></span><span class="rc">4.8 (91)</span></div>
-          <div class="desc">Maximum-heat formula for deep, stubborn muscle tension when you need serious warming relief.</div>
-          <div class="tags"><span class="tag hot">Max Heat</span><span class="tag hot">Capsaicin</span><span class="tag">Long-lasting</span></div>
-          <div class="pfoot">
-            <div class="price">$39.95</div>
-            <button class="btn btn-red addbtn" data-name="WasabiRub Super Hot">Add to Cart</button>
-          </div>
+          <h3>Wasabi Rub Super Hot</h3>
+          <div class="desc">Our strongest formula with Wasabi, Capsaicin and Menthol for intense warming relief.</div>
+          <ul class="blist">
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Deep penetrating warmth</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> Relaxes tight, sore muscles</li>
+            <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2"><path d="M5 12l4 4 10-10"/></svg></span> For tough, stubborn soreness</li>
+          </ul>
+          <div class="pprice">$24.99</div>
+          <button class="btn btn-red addbtn" data-name="Wasabi Rub Super Hot">Add to Cart</button>
+          <a class="learn" href="#">Learn More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a>
         </div>
       </div>
 
@@ -243,43 +282,44 @@ footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9f
   </div>
 </section>
 
-<!-- ============ COMPARE ============ -->
-<section class="section compare">
-  <div class="wrap">
-    <div class="sec-h">Which rub is right for you?</div>
-    <p class="sec-sub">From fresh cooling to deep heat — pick the sensation that fits your recovery.</p>
-    <div class="scale">
-      <div class="col c1">
-        <div class="lvl">Cool</div>
-        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M4 6l16 12M20 6L4 18M12 6l3-2M12 6l-3-2M12 18l3 2M12 18l-3 2"/></svg></div>
-        <h4>IcetraRub</h4>
-        <p>Fresh cooling for acute aches, swelling, and post-workout soreness.</p>
-        <a href="#icetrarub">Shop IcetraRub →</a>
-      </div>
-      <div class="col c2">
-        <div class="lvl">Cool + Warm</div>
-        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M7 8l10 8M17 8L7 16"/></svg></div>
-        <h4>WasabiRub</h4>
-        <p>The balanced three-way formula — cools on contact, then warms deep.</p>
-        <a href="#wasabirub">Shop WasabiRub →</a>
-      </div>
-      <div class="col c3">
-        <div class="lvl">Hot</div>
-        <div class="dot"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3c3 3 4 6 2 9 3-1 4-4 3-7 3 2 4 6 2 10a7 7 0 01-14 0c-1-4 1-8 4-10-1 3 0 5 1 6-1-3 0-6 2-8z"/></svg></div>
-        <h4>Super Hot</h4>
-        <p>Maximum heat for deep, stubborn muscle tension and chronic tightness.</p>
-        <a href="#superhot">Shop Super Hot →</a>
-      </div>
+<!-- ============ QUALITY STRIP ============ -->
+<section class="quality">
+  <div class="wrap quality-in">
+    <div class="qitem">
+      <span class="qic"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div><b>Quality You Can Trust</b><span>Made in the USA in an FDA-registered facility for the highest standards of quality and safety.</span></div>
+    </div>
+    <div class="qitem">
+      <span class="flag"><svg width="44" height="30" viewBox="0 0 44 30"><rect width="44" height="30" fill="#B22234"/><g fill="#fff"><rect y="2.3" width="44" height="2.3"/><rect y="6.9" width="44" height="2.3"/><rect y="11.5" width="44" height="2.3"/><rect y="16.1" width="44" height="2.3"/><rect y="20.7" width="44" height="2.3"/><rect y="25.3" width="44" height="2.3"/></g><rect width="18" height="16.1" fill="#3C3B6E"/></svg></span>
+      <div><b>Proudly Made in the USA</b><span>Supporting athletes and professionals across the country.</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ TRUST ============ -->
-<section class="trust">
-  <div class="wrap trust-in">
-    <div class="t"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>TruShield Certified</b><span>Quality-tested formulas you and your athletes can trust.</span></div></div>
-    <div class="t"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M5 21c1-4 4-6 7-6s6 2 7 6"/></svg></span><div><b>Built by a Pharmacist</b><span>Formulated by the founder &amp; first US Olympic Team pharmacist.</span></div></div>
-    <div class="t"><span class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6L5 3H3"/></svg></span><div><b>Fast, Simple Shipping</b><span>Order online and get relief delivered to your door.</span></div></div>
+<!-- ============ ASK BRANDON ============ -->
+<section class="askb">
+  <div class="wrap askb-in">
+    <div class="askb-photo"><img src="assets/brandon.png" alt="Brandon Welch"></div>
+    <div class="askb-l">
+      <h3>Ask <span class="r">Brandon</span></h3>
+      <p>Have questions about which product is right for you? Get advice from Brandon and our team of experts.</p>
+      <a class="btn btn-red" href="#">Ask a Question</a>
+    </div>
+    <div class="askb-q">
+      <div class="qm">“</div>
+      <blockquote>The right product, used the right way, at the right time makes all the difference.</blockquote>
+      <div class="sig">— Brandon</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER TRUST BAR ============ -->
+<section class="ftrust">
+  <div class="wrap ftrust-in">
+    <div class="fitem"><span class="fic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg></span><div><b>Free Shipping</b><span>On orders over $50</span></div></div>
+    <div class="fitem"><span class="fic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/><path d="M9 15l-2-1"/></svg></span><div><b>Easy Returns</b><span>30-day satisfaction guarantee</span></div></div>
+    <div class="fitem"><span class="fic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><div><b>Secure Checkout</b><span>Your information is safe</span></div></div>
+    <div class="fitem"><span class="fic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H9l-4 4z"/><path d="M9 10h6"/></svg></span><div><b>Need Help?</b><span>We're here for you</span></div></div>
   </div>
 </section>
 
@@ -296,25 +336,15 @@ footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}footer .fl a{color:#9f
 
 <script>
   (function(){
-    var count=0;
-    var badge=document.getElementById('cartCount');
-    var toast=document.getElementById('toast');
-    var toastMsg=document.getElementById('toastMsg');
-    var tt;
+    var count=0, badge=document.getElementById('cartCount'), toast=document.getElementById('toast'), toastMsg=document.getElementById('toastMsg'), tt;
     document.querySelectorAll('.addbtn').forEach(function(btn){
       btn.addEventListener('click',function(){
-        count++;
-        badge.textContent=count;
-        badge.classList.add('show');
+        count++; badge.textContent=count; badge.classList.add('show');
         var name=btn.getAttribute('data-name');
-        var orig=btn.textContent;
-        btn.textContent='Added ✓';
-        btn.classList.add('added');
+        btn.textContent='Added ✓'; btn.classList.add('added');
         setTimeout(function(){btn.textContent='Add to Cart';btn.classList.remove('added');},1300);
-        toastMsg.textContent=name+' added to cart';
-        toast.classList.add('show');
-        clearTimeout(tt);
-        tt=setTimeout(function(){toast.classList.remove('show');},2200);
+        toastMsg.textContent=name+' added to cart'; toast.classList.add('show');
+        clearTimeout(tt); tt=setTimeout(function(){toast.classList.remove('show');},2200);
       });
     });
     document.querySelector('.menu-btn').addEventListener('click',function(){window.location.href='products.html';});

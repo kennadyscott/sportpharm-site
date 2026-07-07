@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SportPharm — Sports Medicine &amp; Professional Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Epilogue:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sp-red:#E0312A;--sp-red-2:#c62a23;
+  --navy-900:#0B1E3B;--navy-800:#122A4E;
+  --ink:#16294A;        /* headings on light */
+  --body:#5A6B82;       /* body text on light */
+  --line-l:#E5EAF1;     /* light borders */
+  --bg:#ffffff;--bg-soft:#F4F7FB;
+  --navy-hero:#0C1F3E;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'Epilogue',sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:var(--sp-red)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding:.95rem 1.5rem;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:.18s;white-space:nowrap}
+.btn svg{width:15px;height:15px}
+.btn-red{background:var(--sp-red);color:#fff}.btn-red:hover{background:var(--sp-red-2);transform:translateY(-1px)}
+.btn-navy{background:var(--navy-900);color:#fff}.btn-navy:hover{background:var(--navy-800)}
+.btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* ---------- HEADER ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+header .wrap{max-width:1320px}
+.nav{display:flex;align-items:center;gap:14px;height:78px}
+.logo{display:flex;flex-direction:column;line-height:1;flex-shrink:0}
+.logo .mark{font-family:'Archivo',sans-serif;font-weight:900;font-style:italic;font-size:1.55rem;color:var(--sp-red)}
+.logo .mark span{color:var(--ink)}
+.logo .tag{font-family:'Roboto Slab',serif;font-weight:700;font-size:.58rem;color:var(--ink);margin-top:3px}
+.logo img{height:42px;width:auto;display:block;flex-shrink:0}
+.foot-logo{height:44px;width:auto;margin:0 auto 8px}
+.mainnav{display:flex;align-items:center;gap:0;margin-left:16px}
+.navitem{position:relative}
+.navlink{display:flex;align-items:center;gap:5px;padding:9px 11px;border-radius:8px;font-family:'Epilogue',sans-serif;font-weight:600;font-size:.9rem;color:var(--ink);cursor:pointer;transition:.15s;white-space:nowrap}
+.mainnav{gap:0}
+.navlink .caret{width:11px;height:11px;opacity:.5}
+.navitem:hover .navlink{color:var(--sp-red)}
+.navlink.active{color:var(--sp-red)}
+.navlink.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--sp-red);border-radius:2px}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line-l);border-radius:12px;padding:10px;min-width:240px;box-shadow:0 20px 40px -16px rgba(16,41,74,.25);opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s}
+.navitem:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:block;padding:9px 12px;border-radius:7px;font-family:'Epilogue',sans-serif;font-weight:600;font-size:.9rem;color:var(--ink);transition:.14s}
+.dropdown a:hover{background:var(--bg-soft);color:var(--sp-red)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:9px;flex-shrink:0}
+.nav-right .btn{padding:.7rem 1.05rem;font-size:.77rem}
+.pharmacy-pill{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;background:var(--sp-red);color:#fff;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.84rem;padding:9px 15px;border-radius:999px;box-shadow:0 8px 20px -6px rgba(224,49,42,.5);transition:.16s}
+.pharmacy-pill svg{flex-shrink:0}
+.hub-cap{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.84rem;padding:9px 14px;border-radius:999px;border:1.5px solid var(--navy-900);color:var(--navy-900);background:transparent;transition:.16s}
+.hub-cap:hover{background:var(--navy-900);color:#fff;transform:translateY(-1px)}
+.hub-cap svg{width:15px;height:15px;flex-shrink:0}
+.pharmacy-pill:hover{background:var(--sp-red-2);transform:translateY(-1px)}
+.pharmacy-pill svg{width:16px;height:16px}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--line-l);border-radius:9px;background:#fff;color:var(--ink);cursor:pointer}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(90% 120% at 88% 10%, #17356a, transparent 55%),
+  linear-gradient(120deg, var(--navy-hero), #0a1830)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch;min-height:430px}
+.hero-left{padding:70px 30px 70px 0;display:flex;flex-direction:column;justify-content:center;align-self:center}
+.hero h1{font-family:'Epilogue',sans-serif;font-weight:700;font-size:3.35rem;line-height:1.06;letter-spacing:-.02em;color:#fff;margin-bottom:20px}
+.hero h1 .r{color:var(--sp-red)}
+.hero p{color:#B9C6DA;font-size:1.08rem;max-width:440px;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-photo{position:relative}
+.hero-photo .ph-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-photo .ph-ph{position:absolute;inset:0;background:linear-gradient(140deg,#123059,#0c1f3e);display:grid;place-items:center}
+.hero-photo .ph-ph svg{width:120px;color:rgba(255,255,255,.12)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, var(--navy-hero) 0%, transparent 22%);pointer-events:none}
+.cross{position:absolute;top:34px;right:44px;width:96px;height:96px;color:rgba(255,255,255,.14);z-index:2}
+
+/* ---------- TRUST BAR ---------- */
+.trust{background:#fff;border-bottom:1px solid var(--line-l)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:26px 0}
+.trust-item{display:flex;gap:14px;align-items:center;padding:6px 26px;border-right:1px solid var(--line-l)}
+.trust-item:last-child{border-right:0}
+.trust-item .ti-ic{color:var(--sp-red);flex-shrink:0}
+.trust-item .tt{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.92rem;color:var(--ink);line-height:1.3}
+
+/* ---------- SUPPORT ---------- */
+.section{padding:78px 0}
+.support-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start}
+h2.sec{font-family:'Epilogue',sans-serif;font-weight:700;font-size:2.2rem;color:var(--ink);letter-spacing:-.01em;line-height:1.1}
+.sec-sub{color:var(--body);font-size:1.05rem;margin:12px 0 30px;max-width:520px}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.svc{background:#fff;border:1px solid var(--line-l);border-radius:14px;padding:24px 22px;transition:.18s}
+.svc:hover{border-color:#cdd8e6;box-shadow:0 16px 34px -18px rgba(16,41,74,.28);transform:translateY(-3px)}
+.svc .s-ic{width:52px;height:52px;border-radius:12px;background:var(--bg-soft);display:grid;place-items:center;color:var(--ink);margin-bottom:16px}
+.svc h3{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.12rem;color:var(--ink);margin-bottom:8px}
+.svc p{font-size:.9rem;color:var(--body);line-height:1.5;margin-bottom:14px}
+.learn{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.82rem;color:var(--sp-red);display:inline-flex;align-items:center;gap:6px}
+.svc:hover .learn{gap:9px}
+
+.support-right{display:flex;flex-direction:column;gap:22px}
+.sr-photo{position:relative;border-radius:16px;overflow:hidden;height:220px;box-shadow:0 18px 40px -20px rgba(16,41,74,.35)}
+.sr-photo .ph-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sr-photo .ph-ph{position:absolute;inset:0;background:linear-gradient(140deg,#e7edf5,#d4dfec);display:grid;place-items:center;color:#9fb0c6}
+.why{background:var(--bg-soft);border:1px solid var(--line-l);border-radius:16px;padding:28px 26px}
+.why h3{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.2rem;color:var(--ink);margin-bottom:18px}
+.why ul{list-style:none;display:flex;flex-direction:column;gap:15px}
+.why li{display:flex;gap:12px;align-items:flex-start;font-size:.94rem;color:var(--ink)}
+.why li .ck{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(224,49,42,.1);color:var(--sp-red);display:grid;place-items:center;margin-top:1px}
+.why li .ck svg{width:13px;height:13px}
+
+/* ---------- READY ---------- */
+.ready{background:linear-gradient(120deg,var(--navy-900),#0a1830)}
+.ready-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:44px;align-items:center;padding:60px 0}
+.ready-l h2{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.95rem;color:#fff;margin-bottom:14px;line-height:1.1}
+.ready-l p{color:#B9C6DA;font-size:1rem;max-width:360px;margin-bottom:24px}
+.ready-r{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;border-left:1px solid rgba(255,255,255,.14);padding-left:44px}
+.feat .f-ic{color:var(--sp-red);margin-bottom:12px}
+.feat h4{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:7px}
+.feat p{font-size:.86rem;color:#9FB0C6;line-height:1.5}
+
+/* ---------- FOOTER ---------- */
+footer{background:#081428;padding:40px 0;text-align:center}
+footer .line{font-family:'Epilogue',sans-serif;font-weight:600;font-size:1.15rem;color:#fff;margin-bottom:20px}
+footer .mark{font-family:'Archivo',sans-serif;font-weight:900;font-style:italic;font-size:1.5rem;color:var(--sp-red)}
+footer .mark span{color:#fff}
+footer .ftag{font-family:'Roboto Slab',serif;font-weight:700;font-size:.62rem;color:#fff;margin-top:5px}
+.foot-links{margin-top:22px;color:#7e91ab;font-size:.82rem}
+.foot-links a{color:#9FB0C6}.foot-links a:hover{color:var(--sp-red)}
+
+@media(max-width:960px){
+  .mainnav{display:none}.menu-btn{display:grid;place-items:center}
+  .hero-grid,.support-grid,.ready-grid{grid-template-columns:1fr}
+  .hero-photo{min-height:300px}
+  .hero-left{padding:56px 0 40px}
+  .trust-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .trust-item{border-right:0}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .ready-r{border-left:0;padding-left:0;grid-template-columns:1fr}
+  .cross{display:none}
+}
+@media(max-width:560px){.svc-grid,.trust-grid{grid-template-columns:1fr}.hero h1{font-size:2.5rem}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt="SportPharm — We Take Our Drugs Seriously"></a>
+    <nav class="mainnav">
+      <div class="navitem">
+        <div class="navlink active">Services <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown">
+          <a href="#compounding">Specialized Compounding</a>
+          <a href="#repackaging">Drug Repackaging</a>
+          <a href="#blister">Blister Packaging</a>
+          <a href="#inventory">Inventory Management</a>
+          <a href="#retail">Retail Pharmacy Services</a>
+          <a href="#concierge">Concierge Sports Pharmacy</a>
+          <a href="#supplements">Supplement Support</a>
+          <a href="#customized">Customized Services</a>
+        </div>
+      </div>
+      <div class="navitem">
+        <div class="navlink">Products <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Professional Catalog</a><a href="#">Supplements</a><a href="#">Compounded Medications</a></div>
+      </div>
+      <div class="navitem">
+        <div class="navlink">Community <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Partner Programs</a><a href="#">Events</a><a href="#">Athletic Programs</a></div>
+      </div>
+      <div class="navitem">
+        <div class="navlink">Resources <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Education &amp; CEUs</a><a href="#">Protocols</a><a href="#">Blog &amp; Articles</a></div>
+      </div>
+      <div class="navitem">
+        <div class="navlink">About Us <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Our Story</a><a href="#">Quality &amp; Compliance</a><a href="#">Contact</a></div>
+      </div>
+    </nav>
+    <div class="nav-right">
+      <a class="hub-cap" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Sports Recovery Hub
+      </a>
+      <a class="pharmacy-pill" href="https://sportpharm.com/store/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.8 8.8l6.4 6.4"/></svg>
+        The Pharmacy
+      </a>
+    </div>
+    <button class="menu-btn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-left">
+      <h1>Partnering with professionals.<br><span class="r">Supporting athletes.</span></h1>
+      <p>SportPharm provides trusted services, innovative products, and dedicated support so you can focus on what matters most—your athletes.</p>
+      <div class="hero-cta">
+        <a class="btn btn-red">Explore Our Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-outline">Contact a Rep <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <svg class="cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg>
+      <div class="ph-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="7" r="3.2"/><path d="M5 21c1-6 4-9 7-9s6 3 7 9"/></svg></div>
+      <img class="ph-img" src="assets/pro-hero.png" alt="SportPharm professional taping an athlete's ankle" onerror="this.remove()">
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<section class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-item">
+      <span class="ti-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+      <div class="tt">Trusted by Healthcare Professionals Nationwide</div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a3 3 0 016 0v2M12 11v4M10 13h4"/></svg></span>
+      <div class="tt">Evidence-Based Solutions You Can Rely On</div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 20c.6-3.5 2.6-5 5-5s4.4 1.5 5 5M14 15c2.4 0 4.4 1.5 5 5"/></svg></span>
+      <div class="tt">Dedicated Support From People Who Understand</div>
+    </div>
+    <div class="trust-item">
+      <span class="ti-ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg></span>
+      <div class="tt">Quality Products. Consistent Performance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE SUPPORT YOU ============ -->
+<section class="section">
+  <div class="wrap support-grid">
+    <div class="support-left">
+      <h2 class="sec">How We Support You</h2>
+      <p class="sec-sub">Comprehensive services designed for healthcare professionals and athletic programs.</p>
+      <div class="svc-grid">
+        <div class="svc" id="compounding">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 10h12M7 10a5 5 0 0010 0M12 15v5M8 20h8M9 6l1.5-2M15 6l-1.5-2"/></svg></div>
+          <h3>Specialized Compounding</h3>
+          <p>Customized medications formulated to meet unique patient needs—topical pain relief, dosage adjustments, and ingredient sensitivities.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="repackaging">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></div>
+          <h3>Drug Repackaging</h3>
+          <p>Bulk medications repackaged into unit-dose or team-specific formats for accuracy, compliance, and easy distribution.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="blister">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="9" cy="8" r="1.5"/><circle cx="15" cy="8" r="1.5"/><circle cx="9" cy="13" r="1.5"/><circle cx="15" cy="13" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg></div>
+          <h3>Blister Packaging</h3>
+          <p>Medications organized into blister-pack formats for simple distribution and reliable compliance tracking.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="inventory">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7.5" height="7.5" rx="1"/><rect x="13.5" y="10" width="7.5" height="7.5" rx="1"/><rect x="8.25" y="3" width="7.5" height="6" rx="1"/></svg></div>
+          <h3>Inventory Management</h3>
+          <p>Smart systems that track, monitor, and replenish pharmaceutical inventory—minimizing waste and keeping clinics stocked.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="retail">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9l1-4h14l1 4M4 9v10h16V9M4 9h16M9 9a3 3 0 006 0"/><path d="M11 12h2M12 11v2"/></svg></div>
+          <h3>Retail Pharmacy Services</h3>
+          <p>Full-service prescription and over-the-counter pharmacy with a focus on athlete wellness and proactive care.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="concierge">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18h16M12 5a6 6 0 016 6v3H6v-3a6 6 0 016-6zM12 3v2M11 20h2"/></svg></div>
+          <h3>Concierge Sports Pharmacy</h3>
+          <p>Personalized pharmacist support—preventative care, medication consults, banned-substance reviews, and collaboration with your physicians and trainers.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="supplements">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="11" height="6" rx="3" transform="rotate(-45 8.5 13)"/><circle cx="16" cy="8" r="3"/><circle cx="18" cy="15" r="2.4"/></svg></div>
+          <h3>Supplement Support</h3>
+          <p>Pharmacist-guided, evidence-based supplement recommendations to support performance, recovery, and wellness.</p>
+          <a class="learn">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="svc" id="customized">
+          <div class="s-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h9M17 8h3M4 16h3M11 16h9"/><circle cx="15" cy="8" r="2.3"/><circle cx="9" cy="16" r="2.3"/></svg></div>
+          <h3>Customized Services</h3>
+          <p>Specialized healthcare programs built around the unique needs of your team or organization.</p>
+          <a class="learn">Request a consult <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="support-right">
+      <div class="sr-photo">
+        <div class="ph-ph"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M3 20c.7-4 3-6 5-6s4.3 2 5 6M13 14c2 0 4.3 2 5 6"/></svg></div>
+        <img class="ph-img" src="assets/pro-support.png" alt="SportPharm professional working with an athlete" onerror="this.remove()">
+      </div>
+      <div class="why">
+        <h3>Why Professionals Choose SportPharm</h3>
+        <ul>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Tailored solutions for athletic and clinical needs</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Fast, reliable service and dedicated account support</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Strict quality standards and regulatory compliance</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Innovative products and ongoing education</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> A partner committed to the health of your athletes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ READY TO WORK TOGETHER ============ -->
+<section class="ready">
+  <div class="wrap ready-grid">
+    <div class="ready-l">
+      <h2>Ready to Work Together?</h2>
+      <p>Connect with a SportPharm representative to learn how we can support your practice or program.</p>
+      <a class="btn btn-red">Contact a Representative <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="ready-r">
+      <div class="feat">
+        <div class="f-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 13v-1a8 8 0 0116 0v1M4 13a2 2 0 002 2h1v-4H6a2 2 0 00-2 2zM20 13a2 2 0 01-2 2h-1v-4h1a2 2 0 012 2zM17 15v1a3 3 0 01-3 3h-2"/></svg></div>
+        <h4>Dedicated Support</h4>
+        <p>Real people, real answers, when you need them.</p>
+      </div>
+      <div class="feat">
+        <div class="f-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/><path d="M10 5v4M8 7h4"/></svg></div>
+        <h4>Reliable Delivery</h4>
+        <p>Count on timely delivery and consistent service.</p>
+      </div>
+      <div class="feat">
+        <div class="f-ic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Focused on Outcomes</h4>
+        <p>Everything we do is designed to help athletes recover and perform.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="line">We take our drugs seriously so you can take care of your athletes.</div>
+    <img src="assets/logo-white.png" alt="SportPharm — We Take Our Drugs Seriously" class="foot-logo">
+    <div class="foot-links">© 2026 SportPharm · <a href="index.html">Main Site</a> · Privacy · Terms</div>
+  </div>
+</footer>
+
+</body>
+</html>

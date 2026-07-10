@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recovery — The Recovery Hub | SportPharm</title>
+<title>Recovery Tools | SportPharm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Epilogue:wght@400;500;600;700;800&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
@@ -437,21 +437,18 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:60px 
 </style>
 
 <!-- ============ PAGE HERO ============ -->
+
 <style>
-.drivers.four{grid-template-columns:repeat(4,1fr)}
-@media(max-width:1080px){.drivers.four{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.drivers.four{grid-template-columns:1fr}}
-.tl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+.tl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
 @media(max-width:1080px){.tl-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.tl-grid{grid-template-columns:1fr}}
-.tl-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.16s}
+.tl-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.16s}
 .tl-card:hover{border-color:rgba(224,49,42,.5);transform:translateY(-3px)}
-.tl-top{margin-bottom:12px}
-.tl-name{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1rem;color:#fff}
-.tl-win{font-family:'Oswald',sans-serif;font-weight:700;font-size:.82rem;color:var(--sp-red);letter-spacing:.04em;margin-top:2px}
-.tl-phases{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
-.tl-phases .ph{font-size:.66rem;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:6px;padding:3px 7px;line-height:1.3}
-.tl-phases .ph b{display:block;color:#dfe7f1;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.7rem}
+.tl-name{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.05rem;color:#fff}
+.tl-win{font-family:'Oswald',sans-serif;font-weight:700;font-size:.84rem;color:var(--sp-red);letter-spacing:.04em;margin-top:2px}
+.tl-phases{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 14px}
+.tl-phases .ph{font-size:.68rem;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:6px;padding:4px 8px;line-height:1.3}
+.tl-phases .ph b{display:block;color:#dfe7f1;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.72rem}
 .tl-go{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.78rem;color:var(--sp-red);display:inline-flex;align-items:center;gap:5px}
 .ex-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
 @media(max-width:1080px){.ex-grid{grid-template-columns:repeat(2,1fr)}}
@@ -462,16 +459,34 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:60px 
 .ex-play{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--sp-red);display:grid;place-items:center}
 .ex-body{padding:13px 15px 15px}
 .ex-name{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.92rem;color:#fff}
-.ex-meta{font-size:.75rem;color:var(--muted);margin-top:3px}
-.rtp-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:26px}
-@media(max-width:1080px){.rtp-grid{grid-template-columns:1fr}}
-.rtp-list{list-style:none;margin-top:18px}
-.rtp-list li{display:flex;gap:11px;align-items:flex-start;color:#dfe7f1;font-size:.95rem;margin-bottom:12px}
-.rtp-list .ck{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--sp-red);color:#fff;display:grid;place-items:center;margin-top:2px}
-.rtp-list .ck svg{width:12px;height:12px}
-.rtp-card{background:var(--navy-850);border:1px solid var(--line);border-radius:16px;padding:26px}
-.rtp-card h3{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:4px}
-.rtp-card .hint{font-size:.82rem;color:var(--muted);margin-bottom:18px}
+.ex-meta{font-size:.75rem;color:var(--muted);margin:3px 0 8px}
+.ex-list{list-style:none;border-top:1px solid var(--line);padding-top:8px}
+.ex-list li{font-size:.76rem;color:var(--muted);padding:3px 0 3px 14px;position:relative}
+.ex-list li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:rgba(224,49,42,.6)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+@media(max-width:1080px){.plan-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.plan-grid{grid-template-columns:1fr}}
+.plan-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.16s}
+.plan-card:hover{border-color:rgba(224,49,42,.5);transform:translateY(-3px)}
+.plan-name{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.05rem;color:#fff}
+.plan-chips{display:flex;gap:6px;margin:8px 0 10px;flex-wrap:wrap}
+.pc{font-family:'Oswald',sans-serif;font-weight:600;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:#f0b9b5;background:rgba(224,49,42,.12);border:1px solid rgba(224,49,42,.28);border-radius:99px;padding:3px 9px}
+.plan-card p{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.prev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+@media(max-width:1080px){.prev-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.prev-grid{grid-template-columns:1fr}}
+.prev-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:18px;transition:.16s}
+.prev-card:hover{border-color:rgba(224,49,42,.5);transform:translateY(-3px)}
+.prev-sports{font-size:.78rem;color:var(--muted);margin:6px 0 14px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:26px}
+@media(max-width:1080px){.split{grid-template-columns:1fr}}
+.klist{list-style:none;margin-top:18px}
+.klist li{display:flex;gap:11px;align-items:flex-start;color:#dfe7f1;font-size:.95rem;margin-bottom:12px}
+.klist .ck{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--sp-red);color:#fff;display:grid;place-items:center;margin-top:2px}
+.klist .ck svg{width:12px;height:12px}
+.panel{background:var(--navy-850);border:1px solid var(--line);border-radius:16px;padding:26px}
+.panel h3{font-family:'Epilogue',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:4px}
+.panel .hint{font-size:.82rem;color:var(--muted);margin-bottom:16px}
 .rtp-row{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:9px;cursor:pointer;transition:.13s;font-size:.9rem;color:#dfe7f1}
 .rtp-row:hover{background:rgba(255,255,255,.05)}
 .rtp-row input{accent-color:var(--sp-red);width:17px;height:17px;margin-top:2px;flex-shrink:0;cursor:pointer}
@@ -479,234 +494,75 @@ footer{background:var(--navy-950);border-top:1px solid var(--line);padding:60px 
 .rtp-fill{height:100%;width:0%;background:var(--sp-red);border-radius:99px;transition:.3s}
 .rtp-verdict{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.92rem;color:#fff}
 .rtp-note{font-size:.72rem;color:var(--muted);margin-top:10px}
-.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
-@media(max-width:1080px){.tool-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.tool-grid{grid-template-columns:1fr}}
-.tool-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:22px 20px;transition:.16s;position:relative}
+.panel select{width:100%;background:#0d1b30;border:1px solid var(--line);color:#fff;font-family:'Epilogue',sans-serif;font-weight:600;font-size:.92rem;padding:12px 14px;border-radius:9px;margin-bottom:18px;cursor:pointer}
+.wu-steps{list-style:none}
+.wu-steps li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:.9rem;color:#dfe7f1}
+.wu-steps li:last-child{border-bottom:0}
+.wu-num{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--sp-red);color:#fff;font-family:'Oswald',sans-serif;font-weight:700;font-size:.75rem;display:grid;place-items:center;margin-top:1px}
+.wu-steps b{color:#fff;font-family:'Epilogue',sans-serif;font-weight:700;display:block;font-size:.88rem}
+.wu-steps .dur{margin-left:auto;flex-shrink:0;font-family:'Oswald',sans-serif;font-weight:700;font-size:.78rem;color:var(--sp-red);white-space:nowrap}
+.wu-total{margin-top:14px;font-family:'Epilogue',sans-serif;font-weight:700;font-size:.9rem;color:#fff}
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:26px}
+@media(max-width:800px){.tool-grid{grid-template-columns:1fr}}
+.tool-card{display:block;background:var(--navy-850);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.16s}
 .tool-card:hover{border-color:rgba(224,49,42,.5);transform:translateY(-3px)}
 .tool-card .t-ic{width:44px;height:44px;border-radius:11px;background:rgba(224,49,42,.12);color:var(--sp-red);display:grid;place-items:center;margin-bottom:14px}
-.tool-card h3{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:6px}
-.tool-card p{font-size:.84rem;color:var(--muted);margin-bottom:14px}
+.tool-card h3{font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:6px}
+.tool-card p{font-size:.86rem;color:var(--muted);margin-bottom:12px}
+.tool-card ul{list-style:none;margin-bottom:14px}
+.tool-card ul li{font-size:.8rem;color:#c3cede;padding:3px 0 3px 16px;position:relative}
+.tool-card ul li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:rgba(224,49,42,.6)}
 .tool-card .soon{font-family:'Oswald',sans-serif;font-weight:700;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#f0b9b5;background:rgba(224,49,42,.14);border:1px solid rgba(224,49,42,.3);padding:4px 9px;border-radius:99px}
+.mini4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+@media(max-width:1080px){.mini4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.mini4{grid-template-columns:1fr}}
+.mini{background:var(--navy-850);border:1px solid var(--line);border-radius:12px;padding:18px}
+.mini b{font-family:'Epilogue',sans-serif;font-weight:700;font-size:.92rem;color:#fff;display:block;margin-bottom:5px}
+.mini span{font-size:.8rem;color:var(--muted)}
 </style>
-<section class="pg-hero">
-  <div class="wrap">
-    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span style="color:#fff">Recovery</span></div>
-    <div class="eyebrow" style="margin-top:18px">The Recovery Hub</div>
-    <h1 class="display">Recover with a plan<span class="red-dot">.</span></h1>
-    <p class="lead">Know what's wrong? This is how you heal &mdash; step-by-step timelines, guided rehab, and clear checkpoints all the way back to play.</p>
 
-    <div class="drivers four">
-      <a class="driver" href="#timelines">
-        <div class="d-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2.5"/></svg></div>
-        <h3>Recovery Timelines</h3>
-        <p>What to expect week by week, for every injury we cover.</p>
-        <span class="go">See the timelines <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="driver" href="#exercises">
-        <div class="d-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9v6M7 8v8M17 8v8M20 9v6M7 12h10"/></svg></div>
-        <h3>Rehab Exercises</h3>
-        <p>Guided routines that rebuild strength the right way.</p>
-        <span class="go">Browse routines <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="driver" href="#return-to-play">
-        <div class="d-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="15" cy="5" r="2"/><path d="M13 8l-4 3 3 3-2 6M12 14l4 2 3 4"/></svg></div>
-        <h3>Return-to-Play</h3>
-        <p>Know when you're truly ready to get back out there.</p>
-        <span class="go">Check readiness <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="driver" href="#tools">
-        <div class="d-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7a4 4 0 00-5 5l-6 6 2 2 6-6a4 4 0 005-5l-3 3-2-2z"/><path d="M16 16l5 5"/></svg></div>
-        <h3>Recovery Tools</h3>
-        <p>Trackers and tools that keep your comeback on course.</p>
-        <span class="go">Explore tools <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
+<section class="pg-hero" style="padding:48px 0 46px">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><a href="recovery.html">Recovery</a><span class="sep">/</span><span style="color:#fff">Recovery Tools</span></div>
+    <div class="eyebrow" style="margin-top:18px">Recovery</div>
+    <h1 class="display">Recovery Tools<span class="red-dot">.</span></h1>
+    <p class="lead">Trackers, assessments, and downloads that keep your comeback on course &mdash; live here as they ship.</p>
   </div>
 </section>
-
-<!-- ============ TIMELINES ============ -->
-<section class="section" id="timelines">
+<section class="section">
   <div class="wrap">
-    <div class="cond-head"><h2 class="sec-head">Recovery Timelines</h2><a class="viewall" href="injuries.html#library">All injury guides →</a></div>
-    <p class="sub" style="max-width:620px">Pick your injury to see the full phase-by-phase roadmap &mdash; what to do now, what comes next, and when you'll be back.</p>
-    <div class="tl-grid">
-      <a class="tl-card" href="ankle-sprain.html">
-        <div class="tl-top"><div class="tl-name">Ankle Sprain</div><div class="tl-win">2 – 6 Weeks</div></div>
-        <div class="tl-phases"><span class="ph"><b>Acute</b>0–72h</span><span class="ph"><b>Early</b>3d–2w</span><span class="ph"><b>Strength</b>2–6w</span><span class="ph"><b>Return</b>6w+</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="acl.html">
-        <div class="tl-top"><div class="tl-name">ACL Injury</div><div class="tl-win">9 – 12 Months</div></div>
-        <div class="tl-phases"><span class="ph"><b>Pre/Post-Op</b>0–4w</span><span class="ph"><b>Rebuild</b>1–12w</span><span class="ph"><b>Strength</b>3–6m</span><span class="ph"><b>Return</b>9–12m</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="hamstring.html">
-        <div class="tl-top"><div class="tl-name">Hamstring Strain</div><div class="tl-win">3 – 8 Weeks</div></div>
-        <div class="tl-phases"><span class="ph"><b>Acute</b>0–5d</span><span class="ph"><b>Loading</b>3d–3w</span><span class="ph"><b>Strength</b>2–6w</span><span class="ph"><b>Sprint</b>4–8w</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="lower-back.html">
-        <div class="tl-top"><div class="tl-name">Lower Back Pain</div><div class="tl-win">2 – 6 Weeks</div></div>
-        <div class="tl-phases"><span class="ph"><b>Calm</b>0–1w</span><span class="ph"><b>Move</b>1–3w</span><span class="ph"><b>Build</b>2–6w</span><span class="ph"><b>Load</b>6w+</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="rotator-cuff.html">
-        <div class="tl-top"><div class="tl-name">Rotator Cuff Tear</div><div class="tl-win">3 – 6 Months</div></div>
-        <div class="tl-phases"><span class="ph"><b>Protect</b>0–3w</span><span class="ph"><b>Motion</b>2–8w</span><span class="ph"><b>Strength</b>6–16w</span><span class="ph"><b>Return</b>3–6m</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="tennis-elbow.html">
-        <div class="tl-top"><div class="tl-name">Tennis Elbow</div><div class="tl-win">6 Wks – 6 Mo</div></div>
-        <div class="tl-phases"><span class="ph"><b>Settle</b>0–2w</span><span class="ph"><b>Load</b>1–6w</span><span class="ph"><b>Strength</b>6–12w</span><span class="ph"><b>Return</b>3–6m</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="shin-splints.html">
-        <div class="tl-top"><div class="tl-name">Shin Splints</div><div class="tl-win">2 – 6 Weeks</div></div>
-        <div class="tl-phases"><span class="ph"><b>Offload</b>0–1w</span><span class="ph"><b>Tolerance</b>1–3w</span><span class="ph"><b>Capacity</b>2–5w</span><span class="ph"><b>Run</b>4–6w</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <a class="tl-card" href="concussion.html">
-        <div class="tl-top"><div class="tl-name">Concussion</div><div class="tl-win">1 – 4 Weeks</div></div>
-        <div class="tl-phases"><span class="ph"><b>Rest</b>0–48h</span><span class="ph"><b>Relative</b>1–7d</span><span class="ph"><b>Graded</b>1–3w</span><span class="ph"><b>Return</b>2–4w</span></div>
-        <span class="tl-go">Full recovery roadmap <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXERCISES ============ -->
-<section class="section" id="exercises" style="background:var(--navy-850);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="cond-head"><h2 class="sec-head">Rehab Exercises</h2><a class="viewall" href="rehab-exercises.html">Full library →</a></div>
-    <p class="sub" style="max-width:620px">Guided, progressive routines for every body part &mdash; filmed with our sports medicine team so you rebuild without re-injuring.</p>
-    <div class="ex-grid">
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Ankle &amp; Foot Stability</div><div class="ex-meta">12 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Knee Strength</div><div class="ex-meta">14 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Hamstring &amp; Hip</div><div class="ex-meta">11 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Core &amp; Lower Back</div><div class="ex-meta">16 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Shoulder &amp; Cuff</div><div class="ex-meta">13 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Elbow &amp; Grip</div><div class="ex-meta">9 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Calf &amp; Shin</div><div class="ex-meta">8 exercises &middot; Guided videos</div></div>
-      </a>
-      <a class="ex-card" href="rehab-exercises.html">
-        <div class="ex-thumb"><span class="ex-play"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="ex-body"><div class="ex-name">Balance &amp; Mobility</div><div class="ex-meta">10 exercises &middot; Guided videos</div></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ RETURN TO PLAY ============ -->
-<section class="section" id="return-to-play">
-  <div class="wrap">
-    <div class="cond-head"><h2 class="sec-head">Return-to-Play</h2></div>
-    <div class="rtp-grid">
-      <div>
-        <p class="sub">Coming back too early is the #1 cause of re-injury. Before you return to full practice or competition, you should be able to check every box &mdash; honestly.</p>
-        <ul class="rtp-list">
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Every injury guide includes a sport-specific return checklist</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Built on the criteria athletic trainers and team physicians use</li>
-          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Downloadable versions you can bring to your provider</li>
-        </ul>
-      </div>
-      <div class="rtp-card">
-        <h3>Quick readiness check</h3>
-        <div class="hint">Check everything that's true for you today.</div>
-        <label class="rtp-row"><input type="checkbox"><span>Pain-free at rest and during daily activity</span></label>
-        <label class="rtp-row"><input type="checkbox"><span>Full range of motion, equal to your other side</span></label>
-        <label class="rtp-row"><input type="checkbox"><span>Strength feels at least 90% of your uninjured side</span></label>
-        <label class="rtp-row"><input type="checkbox"><span>No swelling during or after activity</span></label>
-        <label class="rtp-row"><input type="checkbox"><span>Sport-specific drills at full speed, pain-free</span></label>
-        <label class="rtp-row"><input type="checkbox"><span>Cleared by a healthcare provider</span></label>
-        
-        <div class="rtp-bar"><div class="rtp-fill" id="rtpFill"></div></div>
-        <div class="rtp-verdict" id="rtpVerdict">0 of 6 &mdash; early days. Keep working the plan.</div>
-        <div class="rtp-note">This is a general guide, not medical clearance &mdash; always confirm with your healthcare provider.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ TOOLS ============ -->
-<section class="section" id="tools" style="background:var(--navy-850);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <div class="wrap">
-    <div class="cond-head"><h2 class="sec-head">Recovery Tools</h2></div>
-    <p class="sub" style="max-width:620px">Tools we're building to keep your recovery on track &mdash; live here first as they ship.</p>
+    <div class="cond-head"><h2 class="sec-head">Tools we're building</h2></div>
+    <p class="sub" style="max-width:640px">Recovery goes better when you can see it. These tools ship here first &mdash; here's what each one will do.</p>
     <div class="tool-grid">
-      <a class="tool-card" href="coming-soon.html?f=The+Injury+Assessment">
+      <a class="tool-card" href="coming-soon.html?f=Injury+Assessment">
         <div class="t-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3h6v3H9zM7 6h10v15H7z"/><path d="M10 12l1.5 1.5L14 11"/></svg></div>
-        <h3>Injury Assessment</h3><p>Answer a few questions and get pointed to the right guide.</p>
+        <h3>Injury Assessment</h3><p>Answer a few questions and get pointed to the right guide, fast.</p><ul><li>Symptom-based questions, 2 minutes</li><li>Points you to the most likely guides</li><li>Flags red-alert symptoms that need a provider</li></ul>
         <span class="soon">Coming soon</span>
       </a>
-      <a class="tool-card" href="coming-soon.html?f=The+Recovery+Tracker">
+      <a class="tool-card" href="coming-soon.html?f=Recovery+Tracker">
         <div class="t-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4M8 14l2.5 2.5L16 11"/></svg></div>
-        <h3>Recovery Tracker</h3><p>Log pain, swelling, and milestones to see your progress.</p>
+        <h3>Recovery Tracker</h3><p>Log pain, swelling, and milestones to see your trend line.</p><ul><li>Daily 30-second check-ins</li><li>Phase progress against your timeline</li><li>Share a summary with your provider</li></ul>
         <span class="soon">Coming soon</span>
       </a>
-      <a class="tool-card" href="coming-soon.html?f=The+Pain+%26+Symptom+Diary">
+      <a class="tool-card" href="coming-soon.html?f=Pain+%26+Symptom+Diary">
         <div class="t-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l4 4v14H5z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg></div>
-        <h3>Pain &amp; Symptom Diary</h3><p>Spot patterns that speed up (or stall) your healing.</p>
+        <h3>Pain &amp; Symptom Diary</h3><p>Spot the patterns that speed up &mdash; or stall &mdash; your healing.</p><ul><li>Track pain by time of day and activity</li><li>Connect flare-ups to what you did</li><li>Export a report for appointments</li></ul>
         <span class="soon">Coming soon</span>
       </a>
-      <a class="tool-card" href="coming-soon.html?f=Downloadable+Recovery+Guides">
+      <a class="tool-card" href="coming-soon.html?f=Downloadable+Guides">
         <div class="t-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg></div>
-        <h3>Downloadable Guides</h3><p>Printable recovery timelines and checklists for every injury.</p>
+        <h3>Downloadable Guides</h3><p>Printable timelines and checklists for every injury we cover.</p><ul><li>One-page recovery roadmaps</li><li>Return-to-play checklists by sport</li><li>Bring-to-your-provider formats</li></ul>
         <span class="soon">Coming soon</span>
       </a>
     </div>
   </div>
 </section>
-
-<!-- ============ BRIDGE TO PRODUCTS ============ -->
 <section class="bridge">
   <div class="wrap bridge-in">
-    <div>
-      <h2>Give your recovery every advantage.</h2>
-      <p>From targeted topical relief to braces and recovery tools &mdash; the right products make every phase of the road back easier.</p>
-    </div>
-    <a class="btn btn-red" href="products.html" style="flex-shrink:0">Shop Recovery Products <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div><h2>Don't wait on the tools to start.</h2><p>Your recovery timeline and rehab routines are ready today.</p></div>
+    <a class="btn btn-red" href="recovery-timelines.html" style="flex-shrink:0">See Recovery Timelines <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
-
-<script>
-(function(){
-  var boxes = document.querySelectorAll('.rtp-row input');
-  var fill = document.getElementById('rtpFill');
-  var verdict = document.getElementById('rtpVerdict');
-  function update(){
-    var n = [].filter.call(boxes, function(b){return b.checked;}).length;
-    fill.style.width = (n/boxes.length*100) + '%';
-    var msg;
-    if(n<=2) msg = n + ' of 6 — early days. Keep working the plan.';
-    else if(n<=4) msg = n + ' of 6 — getting closer. Keep building and retest soon.';
-    else if(n===5) msg = '5 of 6 — almost there. Close the last gap before returning.';
-    else msg = '6 of 6 — you look ready. Confirm with your provider and ease back in.';
-    verdict.textContent = msg;
-  }
-  [].forEach.call(boxes, function(b){ b.addEventListener('change', update); });
-})();
-</script>
 
 <!-- ============ FOOTER ============ -->
 <footer>

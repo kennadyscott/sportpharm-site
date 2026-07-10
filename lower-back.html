@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lower Back Pain — Injury Guide | SportPharm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Epilogue:wght@400;500;600;700;800&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sp-red:#E0312A;--sp-red-2:#c62a23;
+  --navy-900:#0B1E3B;--navy-800:#122A4E;--navy-hero:#0C1F3E;
+  --ink:#16294A;--body:#5A6B82;--muted-2:#8395AC;
+  --line-l:#E5EAF1;--bg:#ffffff;--bg-soft:#F4F7FB;--maxw:1440px;
+  --shadow:0 20px 50px -24px rgba(16,41,74,.30);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+header .navlink,header .dropdown a,header .dd-head,header .dd-link .t,header .cap,header .pharmacy-pill,header .hub-cap,header .cart-count,header .mobilemenu a{font-family:'Epilogue',sans-serif}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;color:var(--sp-red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:'Oswald',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.02em;padding:.85rem 1.4rem;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:.16s;white-space:nowrap}
+.btn svg{width:16px;height:16px}
+.btn-red{background:var(--sp-red);color:#fff}.btn-red:hover{background:var(--sp-red-2);transform:translateY(-1px)}
+.btn-out{background:#fff;color:var(--ink);border-color:var(--line-l)}.btn-out:hover{border-color:#c3cede}
+
+/* ---------- HEADER ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-l)}
+.nav{display:flex;align-items:center;gap:14px;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1;flex-shrink:0}
+.logo img{height:30px;width:auto;display:block;flex-shrink:0}
+.logo .sub{font-family:'Roboto Slab',serif;font-weight:700;font-size:.55rem;color:var(--ink);letter-spacing:.02em;white-space:nowrap;margin-top:5px}
+.mainnav{display:flex;align-items:center;gap:0;margin-left:14px}
+.navitem{position:relative}
+.navlink{display:flex;align-items:center;gap:5px;padding:9px 11px;border-radius:8px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.9rem;color:var(--ink);cursor:pointer;transition:.15s;white-space:nowrap}
+.navlink .caret{width:11px;height:11px;opacity:.5}
+.navitem:hover .navlink{color:var(--sp-red)}
+.navlink.active{color:var(--sp-red);position:relative}
+.navlink.active::after{content:"";position:absolute;left:11px;right:11px;bottom:1px;height:2px;background:var(--sp-red);border-radius:2px}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line-l);border-radius:12px;padding:9px;min-width:230px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s}
+.navitem:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.dropdown a{display:block;padding:9px 12px;border-radius:7px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.88rem;color:var(--ink);transition:.14s}
+.dropdown a:hover{background:var(--bg-soft);color:var(--sp-red)}
+.nav-caps{display:flex;align-items:center;gap:10px;margin-left:10px;padding-left:14px;border-left:1px solid var(--line-l)}
+.cap{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-family:'Oswald',sans-serif;font-weight:700;font-size:.84rem;padding:9px 16px;border-radius:999px;transition:.16s}
+.cap svg{width:15px;height:15px}
+.cap-red{background:var(--sp-red);color:#fff;box-shadow:0 8px 20px -8px rgba(224,49,42,.6)}.cap-red:hover{background:var(--sp-red-2)}
+.cap-navy{background:var(--navy-900);color:#fff}.cap-navy:hover{background:var(--navy-800)}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border-radius:9px;border:1px solid var(--line-l);background:#fff;color:var(--ink);cursor:pointer;transition:.15s}
+.icon-btn:hover{background:var(--bg-soft)}
+.menu-btn{display:none}
+
+/* ---------- BREADCRUMB ---------- */
+.crumbbar{background:var(--navy-900);color:#c5d1e2}
+.crumbbar .wrap{display:flex;align-items:center;gap:9px;padding:13px 28px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.82rem;flex-wrap:wrap}
+.crumbbar a:hover{color:#fff}
+.crumbbar .cur{color:#fff}
+.crumbbar .sep{opacity:.45}
+
+/* ---------- LAYOUT ---------- */
+.page{padding:36px 0 84px}
+.grid{display:grid;grid-template-columns:236px minmax(0,1fr) 306px;gap:40px;align-items:start}
+.grid>main{min-width:0}
+
+/* left sidebar */
+.side h4{font-family:'Oswald',sans-serif;font-weight:800;font-size:1.2rem;color:var(--ink);margin-bottom:16px}
+.side-lbl{font-family:'Oswald',sans-serif;font-weight:800;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sp-red);display:flex;align-items:center;gap:7px;margin:18px 0 10px}
+.side-lbl svg{width:14px;height:14px}
+.side-link{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;font-size:.88rem;color:var(--ink);font-weight:500;transition:.14s;cursor:pointer}
+.side-link svg{width:17px;height:17px;color:var(--muted-2);flex-shrink:0}
+.side-link:hover{background:var(--bg-soft)}
+.side-link.on{background:rgba(224,49,42,.08);color:var(--sp-red);font-weight:700}
+.side-link.on svg{color:var(--sp-red)}
+.side-link.all{color:var(--sp-red);font-weight:700}.side-link.all svg{color:var(--sp-red)}
+.assess{margin-top:22px;background:var(--bg-soft);border:1px solid var(--line-l);border-radius:14px;padding:20px}
+.assess h5{font-family:'Oswald',sans-serif;font-weight:800;font-size:1rem;color:var(--ink);margin-bottom:7px}
+.assess p{font-size:.84rem;margin-bottom:12px}
+.assess a{font-family:'Oswald',sans-serif;font-weight:700;font-size:.82rem;color:var(--sp-red);display:inline-flex;gap:5px;align-items:center}
+
+/* center */
+.hero-inj{display:grid;grid-template-columns:370px 1fr;gap:36px;align-items:start;margin-bottom:34px}
+.hero-inj .h-img{border-radius:16px;overflow:hidden;aspect-ratio:1/.9;background:#0d1a2b;box-shadow:var(--shadow)}
+.hero-inj .h-img img{width:100%;height:100%;object-fit:cover}
+.hero-inj h1{font-family:'Oswald',sans-serif;font-weight:800;font-size:2.7rem;color:var(--ink);line-height:1.02;letter-spacing:-.02em;margin:8px 0 12px}
+.hero-inj .lead{font-size:1.02rem;color:var(--body);margin-bottom:20px;max-width:460px}
+.meta{display:flex;gap:22px;flex-wrap:wrap;padding:16px 0;border-top:1px solid var(--line-l);border-bottom:1px solid var(--line-l);margin-bottom:20px}
+.meta .m{display:flex;gap:9px;align-items:flex-start;font-size:.82rem;max-width:190px}
+.meta .m svg{width:17px;height:17px;color:var(--muted-2);flex-shrink:0;margin-top:1px}
+.meta .m b{font-family:'Oswald',sans-serif;font-weight:700;color:var(--ink);display:block;font-size:.82rem}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+/* tabs */
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line-l);margin:6px 0 30px;overflow-x:auto}
+.tab{display:flex;align-items:center;gap:6px;padding:14px 14px;font-family:'Oswald',sans-serif;font-weight:600;font-size:.86rem;color:var(--body);white-space:nowrap;cursor:pointer;border-bottom:2px solid transparent;transition:.14s}
+.tab svg{width:15px;height:15px}
+.tab:hover{color:var(--ink)}
+.tab.on{color:var(--sp-red);border-bottom-color:var(--sp-red)}
+
+.sec-h{font-family:'Oswald',sans-serif;font-weight:800;font-size:1.5rem;color:var(--ink);margin-bottom:20px}
+
+/* roadmap */
+.road{display:flex;align-items:stretch;gap:12px;margin-bottom:48px}
+.phase{flex:1;min-width:0;background:#fff;border:1px solid var(--line-l);border-radius:14px;padding:22px 20px;transition:.16s}
+.phase:hover{box-shadow:var(--shadow);border-color:#d5dfec}
+.phase-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.phase .num{width:30px;height:30px;border-radius:50%;background:var(--sp-red);color:#fff;font-family:'Oswald',sans-serif;font-weight:800;font-size:.9rem;display:grid;place-items:center}
+.phase .p-ic{width:34px;height:34px;border-radius:9px;background:rgba(224,49,42,.09);color:var(--sp-red);display:grid;place-items:center}
+.phase .p-ic svg{width:18px;height:18px}
+.phase h3{font-family:'Oswald',sans-serif;font-weight:800;font-size:1.02rem;color:var(--ink);margin-bottom:2px}
+.phase .when{font-size:.78rem;color:var(--sp-red);font-weight:600;margin-bottom:10px}
+.phase ul{list-style:none;margin-bottom:12px}
+.phase li{font-size:.82rem;color:var(--body);padding-left:14px;position:relative;margin-bottom:4px}
+.phase li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#c3cede}
+.phase .plink{font-family:'Oswald',sans-serif;font-weight:700;font-size:.8rem;color:var(--sp-red);display:inline-flex;gap:5px;align-items:center}
+.chev{display:flex;align-items:center;color:#c3cede;flex-shrink:0}
+.chev svg{width:20px;height:20px}
+
+/* featured resources */
+.res-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.res-card{border:1px solid var(--line-l);border-radius:13px;overflow:hidden;cursor:pointer;transition:.16s;background:#fff}
+.res-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.res-thumb{height:120px;position:relative;background:linear-gradient(150deg,#e7edf5,#d8e2ee);display:grid;place-items:center;color:#9fb0c6;overflow:hidden}
+.res-thumb img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.badge{position:absolute;top:9px;left:9px;z-index:2;background:var(--sp-red);color:#fff;font-family:'Oswald',sans-serif;font-weight:800;font-size:.6rem;letter-spacing:.08em;padding:3px 7px;border-radius:5px;text-transform:uppercase}
+.play{position:relative;z-index:2;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--sp-red);display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.res-body{padding:13px 14px 15px}
+.res-body .rt{font-family:'Oswald',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink);line-height:1.25}
+.res-meta{display:flex;align-items:center;gap:6px;color:var(--muted-2);font-size:.74rem;margin-top:9px}
+.res-meta svg{width:12px;height:12px}
+.res-all{display:flex;justify-content:center;margin-top:26px}
+
+/* right sidebar cards */
+.card{background:#fff;border:1px solid var(--line-l);border-radius:16px;padding:22px;margin-bottom:20px}
+.card h4{font-family:'Oswald',sans-serif;font-weight:800;font-size:1.1rem;color:var(--ink);margin-bottom:16px}
+.trust li{display:flex;gap:11px;align-items:flex-start;font-size:.88rem;color:var(--ink);margin-bottom:13px;list-style:none}
+.trust li:last-child{margin-bottom:0}
+.trust .ck{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--sp-red);color:#fff;display:grid;place-items:center;margin-top:1px}
+.trust .ck svg{width:12px;height:12px}
+.prod{display:flex;gap:13px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line-l)}
+.prod:last-child{border-bottom:0;padding-bottom:0}
+.prod .p-img{width:52px;height:52px;border-radius:10px;background:var(--bg-soft);border:1px solid var(--line-l);display:grid;place-items:center;color:#9fb0c6;flex-shrink:0}
+.prod .p-img svg{width:24px;height:24px}
+.prod .pn{font-family:'Oswald',sans-serif;font-weight:700;font-size:.9rem;color:var(--ink)}
+.prod .pd{font-size:.78rem;color:var(--body);margin:1px 0 3px}
+.prod .pl{font-family:'Oswald',sans-serif;font-weight:700;font-size:.76rem;color:var(--sp-red);display:inline-flex;align-items:center;gap:4px}
+.brandon-card{background:radial-gradient(90% 80% at 80% 10%, #17356a, var(--navy-900));border:0;position:relative;overflow:hidden;color:#fff}
+.brandon-card h4{color:#fff;margin-bottom:6px}
+.brandon-card .bx{font-family:'Oswald',sans-serif;font-weight:800;color:var(--sp-red);font-size:.95rem;margin-bottom:4px}
+.brandon-card p{font-size:.85rem;color:#c5d1e2;margin-bottom:16px;max-width:180px}
+.brandon-card .btn{background:#fff;color:var(--navy-900)}
+.brandon-card img{position:absolute;right:-6px;bottom:0;width:120px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+
+/* footer */
+footer{background:#081428;padding:40px 0;text-align:center}
+footer .fmark{height:30px;width:auto;display:inline-block;margin-bottom:6px}
+footer .ftag{font-family:'Roboto Slab',serif;font-weight:700;font-size:.6rem;color:#fff;letter-spacing:.02em}
+footer .fl{margin-top:18px;color:#7e91ab;font-size:.82rem}
+footer .fl a{color:#9fb0c6}footer .fl a:hover{color:var(--sp-red)}
+
+@media(max-width:1300px){
+  .grid{grid-template-columns:1fr;gap:34px;max-width:840px;margin:0 auto}
+  .side,.rail{position:static}
+}
+@media(max-width:1120px){
+  .mainnav,.nav-caps{display:none}
+  .menu-btn{display:grid}
+}
+@media(max-width:820px){
+  .hero-inj{grid-template-columns:1fr}
+  .road{flex-direction:column}
+  .chev{transform:rotate(90deg);align-self:center}
+  .res-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){.res-grid{grid-template-columns:1fr}.hero-inj h1{font-size:2.1rem}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html">
+      <img src="assets/wordmark-dark.png" alt="SportPharm">
+      <span class="sub">Sports Recovery and Performance Hub</span>
+    </a>
+    <nav class="mainnav">
+      <div class="navitem"><a class="navlink active" href="injuries.html">Injuries <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="dropdown"><a href="injuries.html#body-part">Browse by Body Part</a><a href="injuries.html#sport">Browse by Sport</a><a href="injuries.html#library">Injury Library</a></div>
+      </div>
+      <div class="navitem"><div class="navlink">Recovery <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Recovery Timelines</a><a href="#">Rehab Exercises</a><a href="#">Return-to-Play</a><a href="#">Recovery Tools</a></div>
+      </div>
+      <div class="navitem"><div class="navlink">Performance <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Training</a><a href="#">Injury Prevention</a><a href="#">Strength &amp; Mobility</a><a href="#">Warm-up &amp; Recovery</a></div>
+      </div>
+      <div class="navitem"><div class="navlink">Learn <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="dropdown"><a href="#">Blog &amp; Articles</a><a href="#">Video Library</a><a href="#">Ask Brandon</a><a href="https://sportsrxnetwork.com/" target="_blank" rel="noopener">Sports Rx Network ↗</a></div>
+      </div>
+      <div class="navitem"><a class="navlink" href="products.html">Products <svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="dropdown"><a href="wasabirub.html">WasabiRub</a><a href="icetrarub.html">IcetraRub</a><a href="superhot.html">WasabiRub Super Hot</a><a href="products.html">Shop All Products</a></div>
+      </div>
+    </nav>
+    <div class="nav-caps">
+      <a class="cap cap-red" href="https://sportpharm.com/store/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.8 8.8l6.4 6.4"/></svg> The Pharmacy</a>
+      <a class="cap cap-navy" href="sports-medicine.html">Sports Medicine</a>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></button>
+      <button class="icon-btn menu-btn" aria-label="Menu"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BREADCRUMB ============ -->
+<div class="crumbbar">
+  <div class="wrap">
+    <a href="index.html">Home</a><span class="sep">›</span>
+    <a href="injuries.html">Injuries</a><span class="sep">›</span>
+    <a href="injuries.html#library">Back &amp; Spine</a><span class="sep">›</span>
+    <span class="cur">Lower Back Pain</span>
+  </div>
+</div>
+
+<!-- ============ PAGE ============ -->
+<div class="page">
+  <div class="wrap grid">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="side">
+      <h4>Injury Library</h4>
+      <div class="side-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg> Browse by Body Part</div>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="7" r="3.5"/><path d="M7 21v-3a5 5 0 0110 0v3"/></svg> Head &amp; Neck</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8c3-1 9-1 12 0M8 8v10M16 8v10"/></svg> Shoulder</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 4v7a4 4 0 004 4h6"/></svg> Elbow</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v8l-3 3v7M8 11l6 2 4 3"/></svg> Wrist &amp; Hand</a>
+      <a class="side-link on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M9 6l3-2 3 2M9 18l3 2 3-2"/></svg> Back &amp; Spine</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v7c0 3 2 5 5 5M8 10l8 2v9"/></svg> Hip</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v6a4 4 0 004 4 4 4 0 014 4v4"/></svg> Knee</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3v8l-3 4v6M9 11l5 2 3 3"/></svg> Lower Leg, Ankle &amp; Foot</a>
+      <a class="side-link all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="7" r="3"/><path d="M6 21c0-4 3-7 6-7s6 3 6 7"/></svg> All Body Parts</a>
+
+      <div class="side-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg> Browse by Sport</div>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="15" cy="5" r="2"/><path d="M13 8l-4 3 3 3-2 6M12 14l4 2 3 4"/></svg> Running</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="12" rx="8" ry="6"/><path d="M9 12h6M12 10v4"/></svg> Football</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg> Basketball</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8l3.5 2.5-1.3 4.2h-4.4L8.5 10.5z"/></svg> Soccer</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M6 5c3 3 3 11 0 14"/></svg> Baseball/Softball</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="6" y="3" width="7" height="10" rx="3.5"/><path d="M9.5 13v8"/></svg> Pickleball</a>
+      <a class="side-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 21V4l9 3-9 3"/></svg> Golf</a>
+      <a class="side-link all"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg> View All Sports</a>
+
+      <div class="assess">
+        <h5>Not sure what's wrong?</h5>
+        <p>Answer a few questions and we'll help you find the right information.</p>
+        <a>Start Injury Assessment <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </aside>
+
+    <!-- CENTER -->
+    <main>
+      <div class="hero-inj">
+        <div class="h-img"><img src="assets/injury-lower-back.png" alt="Lower Back Pain" onerror="this.remove()"></div>
+        <div>
+          <div class="eyebrow">Back & Spine</div>
+          <h1>Lower Back Pain</h1>
+          <p class="lead">Everything you need to know about lower back pain — from calming a flare-up to building a resilient, pain-free spine.</p>
+          <div class="meta">
+            <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg><span><b>Common in</b>Weightlifting, Rowing, Golf, Football, Running</span></div>
+            <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><span><b>Typical recovery</b>2 – 6 Weeks</span></div>
+            <div class="m"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="7" width="16" height="13" rx="2"/><path d="M9 7V5a3 3 0 016 0v2"/></svg><span><b>Provider recommended</b>Pain with numbness, leg weakness, or loss of bladder control needs urgent care</span></div>
+          </div>
+          <div class="hero-cta">
+            <a class="btn btn-red">Start My Recovery Plan</a>
+            <a class="btn btn-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg> Download Recovery Guide (PDF)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg> Overview</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z"/></svg> Symptoms</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v3H9zM7 6h10v15H7z"/><path d="M10 12l1.5 1.5L14 11"/></svg> Assessment</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg> Immediate Care</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> Recovery Timeline</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6M7 8v8M17 8v8M20 9v6M7 12h10"/></svg> Exercises</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> Products</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg> Prevention</div>
+        <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 115 0c0 2-2.5 2-2.5 4M12 17h.01"/></svg> FAQs</div>
+      </div>
+
+      <h2 class="sec-h">Your Recovery Roadmap</h2>
+      <div class="road">
+        <div class="phase">
+          <div class="phase-top"><div class="num">1</div><div class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div></div>
+          <h3>Calm the Flare</h3><div class="when">0 – 1 Week</div>
+          <ul><li>Reduce pain and guarding</li><li>Keep gently moving</li></ul>
+          <a class="plink">What to do now <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="phase">
+          <div class="phase-top"><div class="num">2</div><div class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 15c3-6 13-6 16 0M8 15v3M16 15v3"/></svg></div></div>
+          <h3>Restore Movement</h3><div class="when">1 – 3 Weeks</div>
+          <ul><li>Rebuild pain-free motion</li><li>Core activation</li></ul>
+          <a class="plink">View exercises <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="phase">
+          <div class="phase-top"><div class="num">3</div><div class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9v6M7 8v8M17 8v8M20 9v6M7 12h10"/></svg></div></div>
+          <h3>Build Capacity</h3><div class="when">2 – 6 Weeks</div>
+          <ul><li>Progressive strengthening</li><li>Hip and core control</li></ul>
+          <a class="plink">View plan <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
+        <div class="phase">
+          <div class="phase-top"><div class="num">4</div><div class="p-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="15" cy="5" r="2"/><path d="M13 8l-4 3 3 3-2 6M12 14l4 2 3 4"/></svg></div></div>
+          <h3>Return to Load</h3><div class="when">6+ Weeks</div>
+          <ul><li>Reintroduce lifting</li><li>Full activity</li></ul>
+          <a class="plink">Return to play guide <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+
+      <div class="res-head"><h2 class="sec-h" style="margin:0">Featured Resources</h2></div>
+      <div class="res-grid">
+        <div class="res-card"><div class="res-thumb"><span class="badge">Video</span><div class="play"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div>
+          <div class="res-body"><div class="rt">Lower Back Rehab Exercise Walkthrough</div><div class="res-meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg> 13:30</div></div></div>
+        <div class="res-card"><div class="res-thumb"><span class="badge">PDF</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5"/></svg></div>
+          <div class="res-body"><div class="rt">Lower Back Recovery Timeline (Download)</div><div class="res-meta">PDF Guide</div></div></div>
+        <div class="res-card"><div class="res-thumb"><span class="badge">Article</span><img src="assets/injury-lower-back.png" alt="" onerror="this.remove()"></div>
+          <div class="res-body"><div class="rt">Red Flags: When Back Pain Needs a Doctor</div><div class="res-meta">5 min read</div></div></div>
+        <div class="res-card"><div class="res-thumb"><span class="badge">Checklist</span><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8l1.5 1.5L13 7M9 15l1.5 1.5L13 14"/></svg></div>
+          <div class="res-body"><div class="rt">Safe Return to Lifting Checklist</div><div class="res-meta">PDF Checklist</div></div></div>
+      </div>
+      <div class="res-all"><a class="btn btn-out">View All Resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </main>
+
+    <!-- RIGHT SIDEBAR -->
+    <aside class="rail">
+      <div class="card">
+        <h4>Why Trust SportPharm?</h4>
+        <ul class="trust">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Backed by science and sports medicine experts</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Trusted by athletes and healthcare professionals</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> Quality products to support every stage of recovery</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-10"/></svg></span> We're with you every step of the way</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4>Recommended Products</h4>
+        <div class="prod"><div class="p-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 8V5h5l3 3M8 8h8v13H8zM8 8l-2 2v11h2"/></svg></div><div><div class="pn">Diclofenac Sodium</div><div class="pd">Topical Gel</div><a class="pl">View product <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a></div></div>
+        <div class="prod"><div class="p-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v4M7 7h10l-1 13H8zM9 11h6"/></svg></div><div><div class="pn">Lumbar Support Belt</div><div class="pd">Support</div><a class="pl">View product <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a></div></div>
+        <div class="prod"><div class="p-img"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3v6l-3 4v8M9 9l6 2 3 3"/></svg></div><div><div class="pn">Heat Therapy Wrap</div><div class="pd">Relief</div><a class="pl">View product <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M9 6l6 6-6 6"/></svg></a></div></div>
+      </div>
+
+      <div class="card brandon-card">
+        <div class="bx">Ask Brandon</div>
+        <h4>Get expert answers from Brandon Welch.</h4>
+        <p>Browse his videos, articles, and Q&amp;A on lower back pain.</p>
+        <a class="btn">Visit Brandon Hub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <img src="assets/brandon.png" alt="Brandon Welch">
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <img src="assets/wordmark-white.png" alt="SportPharm" class="fmark">
+    <div class="ftag">Sports Recovery and Performance Hub</div>
+    <div class="fl">© 2026 SportPharm · <a href="index.html">Home</a> · <a href="injuries.html">Injuries</a> · Privacy · Terms</div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -116,14 +116,14 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 /* product band */
 .prod{background:var(--soft)}
-.prod-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:470px}
+.prod-grid{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;min-height:500px}
 .prod-copy{display:flex;align-items:center;padding:56px 48px 56px max(26px,calc((100vw - 1200px)/2 + 26px))}
 .prod-copy-in{max-width:460px}
 .prod h2{font-size:3.4rem;margin-bottom:14px;line-height:.92}
 .prod .kick{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--sp-red);font-size:.92rem;margin-bottom:8px}
 .prod p{max-width:34ch;margin-bottom:24px}
-.prod-photo{position:relative;overflow:hidden;background:#e9eef4}
-.prod-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.prod-photo{position:relative;overflow:hidden;background:var(--soft)}
+.prod-photo img{width:100%;height:100%;object-fit:cover;object-position:68% center;display:block;-webkit-mask:linear-gradient(90deg,transparent 0,#000 30%);mask:linear-gradient(90deg,transparent 0,#000 30%)}
 @media(max-width:900px){.prod-grid{grid-template-columns:1fr}.prod-copy{padding:44px 26px}.prod-photo{min-height:300px}}
 
 /* pharmacy explained */
@@ -184,7 +184,7 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
 .pmodal-card h2{font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase;font-size:2.1rem;letter-spacing:.02em;color:var(--ink);margin-bottom:6px}
 .pmodal-card .psub{font-size:1rem;color:var(--body);max-width:44ch;margin:0 auto 2px}.pmodal-card .psub2{font-size:.84rem;color:var(--muted);margin:0 auto 24px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
-.pcard{border-radius:16px;overflow:hidden;cursor:pointer;transition:.16s;display:block;box-shadow:0 8px 20px -12px rgba(16,41,74,.4)}.pcard img{width:100%;aspect-ratio:1/.82;object-fit:cover;display:block}
+.pcard{border-radius:16px;overflow:hidden;cursor:pointer;transition:.16s;display:block;box-shadow:0 8px 20px -12px rgba(16,41,74,.4)}.pcard img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
 .pcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .pcard .pic{width:46px;height:46px;border-radius:11px;background:rgba(224,49,42,.1);color:var(--sp-red);display:grid;place-items:center;margin-bottom:13px}
 .pcard .pic svg{width:23px;height:23px}

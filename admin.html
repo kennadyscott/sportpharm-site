@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>SportPharm — Admin Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E0312A;--red-d:#b8261f;--navy:#0B1E3B;--navy-2:#12294a;--navy-3:#1c3a63;
+  --ink:#10233f;--muted:#6b7a90;--line:#e4e9f0;--bg:#f3f6fb;--card:#fff;--soft:#eef3f9;
+  --green:#12925a;--green-bg:#e5f4ec;--amber:#c07806;--amber-bg:#fbf1de;--blue:#2563eb;--blue-bg:#e6edfd;--gray-bg:#eef1f6;
+  --sh:0 1px 2px rgba(16,35,63,.06),0 8px 24px -16px rgba(16,35,63,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"Inter",sans-serif}
+.disp{font-family:"Bebas Neue",sans-serif;letter-spacing:.02em;font-weight:400}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none}
+input,select,textarea{font-family:inherit;font-size:14px}
+::placeholder{color:#9aa7b8}
+
+/* ---------- LOGIN ---------- */
+#login{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(120% 120% at 80% 0%,#1c3a63 0%,transparent 60%),linear-gradient(150deg,#0a1a33,#12294a 60%,#0a1a33)}
+.login-card{background:var(--card);border-radius:18px;padding:40px 38px 34px;width:100%;max-width:400px;box-shadow:0 40px 90px -30px rgba(0,0,0,.6);text-align:center}
+.login-card img{height:30px;margin-bottom:6px}
+.login-card .lc-sub{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:22px}
+.login-card h1{font-size:22px;margin-bottom:4px;color:var(--ink)}
+.login-card p.mut{font-size:13.5px;color:var(--muted);margin-bottom:24px}
+.fld{text-align:left;margin-bottom:14px}
+.fld label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.fld input{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fbfcfe}
+.fld input:focus{outline:none;border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(28,58,99,.12)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:14px;padding:11px 18px;border-radius:10px;transition:.15s}
+.btn svg{width:16px;height:16px;flex-shrink:0}
+.btn-primary{background:var(--red);color:#fff;width:100%}
+.btn-primary:hover{background:var(--red-d)}
+.login-note{margin-top:16px;font-size:12px;color:#93a0b2}
+
+/* ---------- APP SHELL ---------- */
+#app{display:grid;grid-template-columns:238px 1fr;min-height:100vh}
+.sidebar{background:var(--navy);color:#cdd8e8;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.sb-top{padding:22px 20px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb-top img{height:24px}
+.sb-badge{margin-left:auto;font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(224,49,42,.16);color:#ff9a94;padding:4px 7px;border-radius:6px}
+.sb-nav{padding:14px 12px;flex:1;overflow:auto}
+.sb-lbl{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#5d708a;padding:14px 10px 6px}
+.sb-item{display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:9px;font-size:14px;font-weight:500;color:#c4d0e2;cursor:pointer;transition:.13s;width:100%;text-align:left}
+.sb-item svg{width:18px;height:18px;flex-shrink:0;opacity:.85}
+.sb-item:hover{background:rgba(255,255,255,.06);color:#fff}
+.sb-item.on{background:var(--red);color:#fff}
+.sb-item.on svg{opacity:1}
+.sb-item .cnt{margin-left:auto;font-size:11px;font-weight:700;background:rgba(255,255,255,.14);padding:2px 8px;border-radius:20px}
+.sb-item.on .cnt{background:rgba(255,255,255,.22)}
+.sb-foot{padding:14px 16px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:10px}
+.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--red),#ff6b52);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px}
+.sb-foot .who{font-size:13px;font-weight:600;color:#fff;line-height:1.2}
+.sb-foot .who small{display:block;font-size:11px;font-weight:500;color:#8a99b0}
+.sb-foot .out{margin-left:auto;color:#8a99b0}
+.sb-foot .out:hover{color:#fff}
+
+.main{display:flex;flex-direction:column;min-width:0}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);padding:0 28px;height:66px;display:flex;align-items:center;gap:18px;position:sticky;top:0;z-index:20}
+.topbar .tt{font-family:"Bebas Neue",sans-serif;font-size:27px;letter-spacing:.02em;line-height:1}
+.topbar .search{margin-left:auto;position:relative}
+.topbar .search input{width:260px;padding:9px 12px 9px 34px;border:1px solid var(--line);border-radius:9px;background:var(--soft)}
+.topbar .search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:#93a0b2}
+.topbar .view-site{font-size:13px;font-weight:600;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.topbar .view-site:hover{color:var(--red)}
+.content{padding:26px 28px 60px;max-width:1240px;width:100%}
+
+/* ---------- UI PRIMITIVES ---------- */
+.pagehead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.pagehead .sub{font-size:13.5px;color:var(--muted);margin-top:3px}
+.btn-navy{background:var(--navy);color:#fff}.btn-navy:hover{background:var(--navy-2)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn-ghost:hover{border-color:#c7d2e0;background:var(--soft)}
+.btn-sm{padding:8px 13px;font-size:13px;border-radius:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh)}
+.pad{padding:20px 22px}
+
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:20px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;box-shadow:var(--sh)}
+.kpi .k-top{display:flex;align-items:center;justify-content:space-between}
+.kpi .k-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.kpi .k-ico svg{width:17px;height:17px}
+.kpi .k-val{font-family:"Bebas Neue",sans-serif;font-size:38px;line-height:.95;margin-top:12px}
+.kpi .k-lbl{font-size:12.5px;color:var(--muted);font-weight:500;margin-top:2px}
+.kpi .k-trend{font-size:11.5px;font-weight:700;margin-top:9px;display:inline-flex;align-items:center;gap:4px}
+.up{color:var(--green)}.down{color:var(--red)}
+
+.grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:16px}
+.grid2b{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sec-h{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--line)}
+.sec-h h3{font-size:14px;font-weight:700}
+.sec-h a{font-size:12.5px;font-weight:600;color:var(--red)}
+
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding:12px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl td{padding:13px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr:hover,.tbl tbody tr:hover{background:var(--soft)}
+.t-title{font-weight:600;color:var(--ink)}
+.t-sub{font-size:12px;color:var(--muted)}
+.rowimg{width:44px;height:32px;border-radius:6px;object-fit:cover;flex-shrink:0}
+.cellflex{display:flex;align-items:center;gap:11px}
+
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.p-green{background:var(--green-bg);color:var(--green)}
+.p-amber{background:var(--amber-bg);color:var(--amber)}
+.p-blue{background:var(--blue-bg);color:var(--blue)}
+.p-gray{background:var(--gray-bg);color:#5b6b82}
+.p-red{background:#fbe7e6;color:var(--red-d)}
+.dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.tag{display:inline-block;font-size:11px;font-weight:600;background:var(--soft);color:#4f6079;padding:2px 8px;border-radius:6px;margin:2px 3px 2px 0}
+
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.chipf{font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:20px;border:1px solid var(--line);background:#fff;color:var(--muted)}
+.chipf.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.iconbtn{width:30px;height:30px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;color:var(--muted);border:1px solid transparent}
+.iconbtn:hover{background:var(--soft);color:var(--ink)}
+.iconbtn svg{width:16px;height:16px}
+.act-del:hover{color:var(--red);background:#fbe7e6}
+
+/* editor */
+.editor{display:grid;grid-template-columns:1fr 340px;gap:18px}
+.f-group{margin-bottom:16px}
+.f-group label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.f-group .hint{font-size:11.5px;color:var(--muted);font-weight:400;margin-left:4px}
+.inp{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fbfcfe}
+.inp:focus{outline:none;border-color:var(--navy-3);box-shadow:0 0 0 3px rgba(28,58,99,.1)}
+textarea.inp{resize:vertical;min-height:260px;line-height:1.6;font-size:14px}
+.tagbox{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:#fbfcfe}
+.tagbox input{border:0;background:none;flex:1;min-width:90px;padding:4px}
+.tagbox input:focus{outline:none}
+.tagchip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;background:var(--navy);color:#fff;padding:3px 5px 3px 9px;border-radius:6px}
+.tagchip b{cursor:pointer;font-weight:700;opacity:.7}.tagchip b:hover{opacity:1}
+.side-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+.side-card h4{font-size:12.5px;font-weight:700;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.imgprev{width:100%;aspect-ratio:16/9;border-radius:9px;object-fit:cover;background:var(--soft);border:1px dashed var(--line);margin-bottom:10px;display:block}
+.seg{display:flex;background:var(--soft);border-radius:9px;padding:3px;gap:2px}
+.seg button{flex:1;padding:8px;border-radius:7px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.seg button.on.pub{color:var(--green)}
+
+/* modal + drawer */
+#modal:empty,#drawer:empty{display:none}
+.ov{position:fixed;inset:0;z-index:60;background:rgba(10,22,40,.5);display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(2px)}
+.modal{background:#fff;border-radius:16px;width:100%;max-width:520px;max-height:90vh;overflow:auto;box-shadow:0 40px 90px -30px rgba(0,0,0,.5)}
+.drawer-ov{position:fixed;inset:0;z-index:60;background:rgba(10,22,40,.5);display:flex;justify-content:flex-end}
+.drawer{background:#fff;width:100%;max-width:440px;height:100%;overflow:auto;box-shadow:-20px 0 60px -30px rgba(0,0,0,.5)}
+.mh{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line)}
+.mh h3{font-size:17px}
+.mb{padding:20px 22px}
+.mf{display:flex;justify-content:flex-end;gap:10px;padding:16px 22px;border-top:1px solid var(--line)}
+
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);z-index:120;background:var(--navy);color:#fff;padding:12px 20px;border-radius:10px;font-size:13.5px;font-weight:600;box-shadow:0 20px 40px -12px rgba(0,0,0,.4);opacity:0;transition:.22s;pointer-events:none;display:flex;align-items:center;gap:9px}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast svg{width:16px;height:16px;color:#5be59a}
+
+.empty{text-align:center;padding:50px 20px;color:var(--muted)}
+.minichart{display:flex;align-items:flex-end;gap:5px;height:46px}
+.minibar{flex:1;background:var(--soft);border-radius:3px 3px 0 0;position:relative}
+.minibar i{position:absolute;inset:auto 0 0 0;background:var(--red);border-radius:3px 3px 0 0;display:block}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:12.5px}
+.legend span{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
+.legend i{width:10px;height:10px;border-radius:3px}
+.barlist{display:flex;flex-direction:column;gap:13px}
+.barrow{display:grid;grid-template-columns:150px 1fr 46px;align-items:center;gap:12px;font-size:13px}
+.barrow .track{height:8px;background:var(--soft);border-radius:5px;overflow:hidden}
+.barrow .track i{display:block;height:100%;background:linear-gradient(90deg,var(--navy-3),var(--red));border-radius:5px}
+.barrow .num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.feed{display:flex;flex-direction:column}
+.feed li{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);list-style:none;font-size:13px}
+.feed li:last-child{border:0}
+.feed .fi{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.feed .fi svg{width:15px;height:15px}
+.feed time{color:var(--muted);font-size:11.5px}
+
+@media(max-width:1080px){.kpis{grid-template-columns:repeat(2,1fr)}.grid2,.editor{grid-template-columns:1fr}.editor{display:block}}
+@media(max-width:820px){#app{grid-template-columns:1fr}.sidebar{display:none}.grid2b{grid-template-columns:1fr}.topbar .search input{width:150px}}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <div class="login-card">
+    <img src="assets/wordmark-dark.png" alt="SportPharm">
+    <div class="lc-sub">Admin Console</div>
+    <h1>Sign in</h1>
+    <p class="mut">Manage content, products, leads &amp; insights.</p>
+    <form id="loginForm">
+      <div class="fld"><label>Email</label><input type="email" value="brandon@sportpharm.com" required></div>
+      <div class="fld"><label>Password</label><input type="password" value="demo" required></div>
+      <button class="btn btn-primary" type="submit">Sign in to dashboard</button>
+    </form>
+    <div class="login-note">Prototype — any credentials work.</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" hidden>
+  <aside class="sidebar">
+    <div class="sb-top"><img src="assets/wordmark-white.png" alt="SportPharm"><span class="sb-badge">Admin</span></div>
+    <nav class="sb-nav" id="sbnav"></nav>
+    <div class="sb-foot">
+      <div class="avatar">BW</div>
+      <div class="who">Brandon Welch<small>President</small></div>
+      <button class="out" id="logout" title="Sign out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg></button>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="topbar">
+      <div class="tt" id="ptitle">Dashboard</div>
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg><input id="globalsearch" placeholder="Search content, leads…"></div>
+      <a class="view-site" href="index.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>View site</a>
+    </header>
+    <div class="content" id="view"></div>
+  </div>
+</div>
+
+<div id="modal"></div>
+<div id="drawer"></div>
+<div id="toast"></div>
+
+<script>
+/* ============ ICONS ============ */
+const I={
+ dash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>',
+ blog:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11l5 5v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M14 4v5h5M8 13h8M8 17h5"/></svg>',
+ prod:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg>',
+ lead:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H7l-3 3V4Z"/><path d="M8 9h8M8 12h5"/></svg>',
+ chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 5-7"/></svg>',
+ gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-2.9 1.2V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 6 19.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0-1.2-2.9H2a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 3.3 6l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H8a1.7 1.7 0 0 0 1-1.5V2a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 2.9 1.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V8a1.7 1.7 0 0 0 1.5 1H22a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg>',
+ eye:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>',
+ users:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg>',
+ edit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>',
+ del:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m3 0v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6"/></svg>',
+ plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M5 12h14"/></svg>',
+ check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>',
+ close:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>',
+ doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg>',
+ mail:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>',
+ box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/></svg>'
+};
+
+/* ============ SEED DATA ============ */
+const SEED={
+ articles:[
+  {id:'a1',title:'Soreness or Injury? What to Pay Attention To',slug:'soreness-or-injury',category:'Pain & Injury',tags:['soreness','injury','recovery'],author:'SportPharm Team',status:'published',date:'2026-07-18',views:1284,image:'assets/ea-recovery.jpg',excerpt:'How to tell normal training soreness from a signal worth acting on — and what to do next.',body:'## When soreness is normal\\nMuscle soreness after a hard session is common and usually fades in a day or two.\\n\\n## Signs to pay attention to\\n- Pain that sharpens with movement\\n- Swelling that does not settle\\n- Discomfort that keeps coming back\\n\\nWhen in doubt, ease off and reassess.'},
+  {id:'a2',title:'Five Recovery Habits That Make a Real Difference',slug:'recovery-habits',category:'Recovery',tags:['recovery','habits','sleep'],author:'Dr. Marissa Figueroa',status:'published',date:'2026-07-12',views:2041,image:'assets/ea-runner.jpg',excerpt:'Small, repeatable habits that move recovery from an afterthought to an advantage.',body:'Recovery is built in the quiet hours between sessions. Sleep, hydration, and consistent movement do most of the work.'},
+  {id:'a3',title:'Understanding NSAIDs: When and How to Use Them',slug:'understanding-nsaids',category:'Medication',tags:['NSAIDs','pain relief','medication'],author:'SportPharm Team',status:'published',date:'2026-07-05',views:1637,image:'assets/ea-medication.jpg',excerpt:'A practical, no-nonsense look at over-the-counter anti-inflammatories for active people.',body:'NSAIDs can help with pain and inflammation, but timing and dosage matter. Talk to a pharmacist about what fits your situation.'},
+  {id:'a4',title:'Returning to Training After Time Off',slug:'return-to-training',category:'Recovery',tags:['return','progression','training'],author:'Sean Casey',status:'draft',date:'2026-07-22',views:0,image:'assets/ea-gym.jpg',excerpt:'A realistic, low-drama framework for easing back into the activities you love.',body:'Start below where you left off. Rebuild volume before intensity. Let confidence catch up to capability.'},
+  {id:'a5',title:'What a Sports Pharmacy Actually Does',slug:'what-sports-pharmacy-does',category:'Sports Pharmacy',tags:['pharmacy','education'],author:'SportPharm Team',status:'draft',date:'2026-07-24',views:0,image:'assets/ea-climber.jpg',excerpt:'Compounding, repackaging, concierge support — demystifying the pharmacy behind the athletes.',body:'A sports pharmacy blends clinical rigor with the practical needs of active people and the teams that support them.'}
+ ],
+ products:[
+  {id:'p1',name:'WasabiRub',category:'Topical Rub',price:24.99,status:'active',stock:340,image:'assets/ea-wasabirub.jpg',blurb:'Fast-acting warming topical for pre-activity and sore muscles.'},
+  {id:'p2',name:'IcetraRub',category:'Topical Rub',price:22.99,status:'active',stock:210,image:'',blurb:'Cooling menthol rub for post-activity relief and inflammation.'},
+  {id:'p3',name:'Super Hot',category:'Topical Rub',price:26.99,status:'active',stock:96,image:'',blurb:'Maximum-strength warming formula for deep muscle work.'},
+  {id:'p4',name:'Recovery Gel',category:'Recovery',price:19.99,status:'active',stock:150,image:'',blurb:'Lightweight recovery gel for daily use.'},
+  {id:'p5',name:'Arnica Relief Cream',category:'Recovery',price:18.50,status:'active',stock:78,image:'',blurb:'Botanical arnica cream for bruising and tenderness.'},
+  {id:'p6',name:'Muscle Recovery Roll-On',category:'Topical Rub',price:16.99,status:'out',stock:0,image:'',blurb:'Mess-free roll-on applicator for targeted relief.'},
+  {id:'p7',name:'Electrolyte Recovery Mix',category:'Supplement',price:29.99,status:'active',stock:410,image:'',blurb:'Hydration and electrolyte support for training days.'},
+  {id:'p8',name:'Joint Support Complex',category:'Supplement',price:34.99,status:'draft',stock:0,image:'',blurb:'Daily joint support formula (coming soon).'}
+ ],
+ leads:[
+  {id:'l1',name:'Jordan Ellis',email:'jordan.ellis@gmail.com',persona:'Everyday Athlete',source:'injuries.html',status:'new',date:'2026-07-24',message:'Recurring knee pain from running. Not sure whether to rest or push through — looking for guidance and product recommendations.'},
+  {id:'l2',name:'Coach Priya Nair',email:'pnair@rivercityfc.org',persona:'Pro Athlete',source:'pro-athlete.html',status:'new',date:'2026-07-23',message:'Managing a semi-pro soccer club. Interested in concierge sports pharmacy support and bulk WasabiRub for the season.'},
+  {id:'l3',name:'Dr. Alan Whitfield',email:'awhitfield@summitsportsmed.com',persona:'Healthcare / AT',source:'sports-medicine.html',status:'contacted',date:'2026-07-21',message:'Athletic trainer at a college program. Want to discuss compounding and blister packaging for our medical kit.'},
+  {id:'l4',name:'Maria Santos',email:'maria.s@outlook.com',persona:'Everyday Athlete',source:'wasabirub.html',status:'contacted',date:'2026-07-19',message:'Tried WasabiRub at a race expo and loved it — where can I buy in bulk?'},
+  {id:'l5',name:'Trainer Mike Doyle',email:'mike@peakperformlab.com',persona:'Pro Athlete',source:'pro-athlete.html',status:'archived',date:'2026-07-15',message:'Following up on supplement support options for our athletes.'}
+ ]
+};
+
+/* ============ STATE / STORAGE ============ */
+const DB={
+ get(k,seed){try{const v=localStorage.getItem('sp_admin_'+k);return v?JSON.parse(v):(this.set(k,seed),seed);}catch(e){return seed;}},
+ set(k,v){localStorage.setItem('sp_admin_'+k,JSON.stringify(v));return v;}
+};
+let state={
+ articles:DB.get('articles',SEED.articles),
+ products:DB.get('products',SEED.products),
+ leads:DB.get('leads',SEED.leads)
+};
+function save(k){DB.set(k,state[k]);}
+const CATS=['Recovery','Pain & Injury','Medication','Sports Pharmacy','Training','Nutrition'];
+const uid=p=>p+Math.abs((Date.parse(new Date().toISOString())+performance.now()*1000|0)).toString(36);
+
+/* ============ HELPERS ============ */
+const $=s=>document.querySelector(s);
+const esc=s=>(s==null?'':String(s)).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=n=>'$'+Number(n).toFixed(2);
+const fmtDate=d=>{const p=String(d).split('-');return p.length===3?['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1]+' '+(+p[2])+', '+p[0]:d;};
+function toast(msg){const t=$('#toast');t.innerHTML=I.check+esc(msg);t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),2200);}
+function statusPill(s){const m={published:['p-green','Published'],draft:['p-amber','Draft'],active:['p-green','Active'],out:['p-red','Out of stock'],new:['p-blue','New'],contacted:['p-gray','Contacted'],archived:['p-gray','Archived']};const x=m[s]||['p-gray',s];return `<span class="pill ${x[0]}"><i class="dot"></i>${x[1]}</span>`;}
+function personaPill(p){const c=p&&p.indexOf('Pro')===0?'p-amber':p&&p.indexOf('Health')===0?'p-blue':'p-green';return `<span class="pill ${c}">${esc(p)}</span>`;}
+
+/* ============ NAV ============ */
+const NAV=[
+ {id:'dashboard',label:'Dashboard',icon:'dash'},
+ {id:'blog',label:'Blog & Content',icon:'blog',count:()=>state.articles.length},
+ {id:'products',label:'Products',icon:'prod',count:()=>state.products.length},
+ {id:'leads',label:'Leads',icon:'lead',count:()=>state.leads.filter(l=>l.status==='new').length},
+ {id:'analytics',label:'Analytics',icon:'chart'},
+ {id:'settings',label:'Settings',icon:'gear'}
+];
+function renderNav(active){
+ $('#sbnav').innerHTML='<div class="sb-lbl">Manage</div>'+NAV.map(n=>{
+   const c=n.count?n.count():null;
+   return `<button class="sb-item ${active===n.id?'on':''}" data-nav="${n.id}">${I[n.icon]}<span>${n.label}</span>${c?`<span class="cnt">${c}</span>`:''}</button>`;
+ }).join('');
+ $('#sbnav').querySelectorAll('[data-nav]').forEach(b=>b.onclick=()=>location.hash='#'+b.dataset.nav);
+}
+
+/* ============ ROUTER ============ */
+const TITLES={dashboard:'Dashboard',blog:'Blog & Content',products:'Products',leads:'Leads & Contacts',analytics:'Analytics',settings:'Settings'};
+function router(){
+ const h=(location.hash||'#dashboard').slice(1);
+ const [route,arg,arg2]=h.split('/');
+ renderNav(route);
+ $('#ptitle').textContent=route==='blog'&&(arg==='new'||arg==='edit')?(arg==='new'?'New Article':'Edit Article'):(TITLES[route]||'Dashboard');
+ const V=$('#view');window.scrollTo(0,0);
+ if(route==='dashboard')return viewDashboard(V);
+ if(route==='blog'&&arg==='new')return viewEditor(V,null);
+ if(route==='blog'&&arg==='edit')return viewEditor(V,arg2);
+ if(route==='blog')return viewBlog(V);
+ if(route==='products')return viewProducts(V);
+ if(route==='leads')return viewLeads(V);
+ if(route==='analytics')return viewAnalytics(V);
+ if(route==='settings')return viewSettings(V);
+ viewDashboard(V);
+}
+
+/* ============ DASHBOARD ============ */
+const TRAFFIC=[820,910,760,1040,1180,990,1260,1340,1120,1420,1510,1380,1600,1720,1540,1810,1690,1920,2040,1880,2160,2050,2280,2410,2190,2520,2380,2610,2740,2680];
+function viewDashboard(V){
+ const pub=state.articles.filter(a=>a.status==='published').length;
+ const newLeads=state.leads.filter(l=>l.status==='new').length;
+ const views30=TRAFFIC.reduce((a,b)=>a+b,0);
+ const k=(ico,col,val,lbl,trend,dir)=>`<div class="kpi"><div class="k-top"><div class="k-ico" style="background:${col}22;color:${col}">${I[ico]}</div><span class="k-trend ${dir}">${dir==='up'?'▲':'▼'} ${trend}</span></div><div class="k-val">${val}</div><div class="k-lbl">${lbl}</div></div>`;
+ V.innerHTML=`
+ <div class="pagehead"><div><div class="disp" style="font-size:15px;color:var(--muted);letter-spacing:.1em">WELCOME BACK, BRANDON</div><div class="sub">Here's how SportPharm is performing this month.</div></div>
+   <button class="btn btn-navy btn-sm" data-go="blog/new">${I.plus} New article</button></div>
+ <div class="kpis">
+   ${k('eye','#E0312A',(views30/1000).toFixed(1)+'k','Page views · 30d','12.4%','up')}
+   ${k('users','#2563eb','9,847','Unique visitors','8.1%','up')}
+   ${k('blog','#12925a',pub,'Published articles','2 new','up')}
+   ${k('mail','#c07806',newLeads,'New leads','3 today','up')}
+ </div>
+ <div class="grid2">
+   <div class="card"><div class="sec-h"><h3>Traffic · last 30 days</h3><a href="#analytics">View analytics →</a></div><div class="pad">${areaChart(TRAFFIC,'#E0312A')}</div></div>
+   <div class="card"><div class="sec-h"><h3>Audience split</h3></div><div class="pad">${donut()}</div></div>
+ </div>
+ <div class="grid2" style="margin-top:16px">
+   <div class="card"><div class="sec-h"><h3>Recent articles</h3><a href="#blog">Manage →</a></div>
+     <table class="tbl"><tbody>${state.articles.slice(0,4).map(a=>`<tr data-go="blog/edit/${a.id}" style="cursor:pointer"><td><div class="cellflex"><img class="rowimg" src="${a.image||'assets/wordmark-dark.png'}" alt=""><div><div class="t-title">${esc(a.title)}</div><div class="t-sub">${esc(a.category)} · ${fmtDate(a.date)}</div></div></div></td><td style="text-align:right">${statusPill(a.status)}</td></tr>`).join('')}</tbody></table></div>
+   <div class="card"><div class="sec-h"><h3>Latest leads</h3><a href="#leads">View all →</a></div>
+     <ul class="feed pad" style="padding-top:6px;padding-bottom:6px">${state.leads.slice(0,4).map(l=>`<li><div class="fi" style="background:var(--blue-bg);color:var(--blue)">${I.mail}</div><div style="flex:1"><div class="t-title">${esc(l.name)} <span class="t-sub">· ${esc(l.persona)}</span></div><time>${fmtDate(l.date)} · from ${esc(l.source)}</time></div>${statusPill(l.status)}</li>`).join('')}</ul></div>
+ </div>`;
+ bindGo(V);
+}
+function areaChart(data,color){
+ const w=560,h=170,max=Math.max(...data),min=Math.min(...data)*0.85;
+ const dx=w/(data.length-1),y=v=>h-((v-min)/(max-min||1))*(h-24)-8;
+ let line='M0 '+y(data[0]).toFixed(1);data.forEach((v,i)=>{if(i)line+=' L'+(i*dx).toFixed(1)+' '+y(v).toFixed(1);});
+ const area=line+` L${w} ${h} L0 ${h} Z`;
+ return `<svg viewBox="0 0 ${w} ${h}" width="100%" preserveAspectRatio="none" style="display:block"><defs><linearGradient id="ag" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".22"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>${[0.25,0.5,0.75].map(f=>`<line x1="0" x2="${w}" y1="${(h*f).toFixed(0)}" y2="${(h*f).toFixed(0)}" stroke="#eef2f7"/>`).join('')}<path d="${area}" fill="url(#ag)"/><path d="${line}" fill="none" stroke="${color}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="${w}" cy="${y(data[data.length-1]).toFixed(1)}" r="4" fill="${color}"/></svg>`;
+}
+const AUD=[['Everyday Athlete',58,'#E0312A'],['Pro Athlete',22,'#0B1E3B'],['Healthcare / AT',20,'#2563eb']];
+function donut(){
+ const r=52,c=2*Math.PI*r;let off=0;
+ const segs=AUD.map(([l,v,col])=>{const len=c*v/100;const s=`<circle cx="70" cy="70" r="${r}" fill="none" stroke="${col}" stroke-width="20" stroke-dasharray="${len.toFixed(1)} ${(c-len).toFixed(1)}" stroke-dashoffset="${(-off).toFixed(1)}" transform="rotate(-90 70 70)"/>`;off+=len;return s;}).join('');
+ return `<div style="display:flex;align-items:center;gap:18px"><svg viewBox="0 0 140 140" width="130" height="130">${segs}<text x="70" y="66" text-anchor="middle" font-family="Bebas Neue" font-size="30" fill="#10233f">9.8k</text><text x="70" y="86" text-anchor="middle" font-size="10" fill="#6b7a90">visitors</text></svg><div class="legend" style="flex-direction:column;gap:11px;margin:0">${AUD.map(([l,v,col])=>`<span><i style="background:${col}"></i>${l} <b style="color:var(--ink);margin-left:4px">${v}%</b></span>`).join('')}</div></div>`;
+}
+
+/* ============ BLOG ============ */
+let blogFilter={status:'all',q:''};
+function viewBlog(V){
+ const list=state.articles.filter(a=>(blogFilter.status==='all'||a.status===blogFilter.status)&&(!blogFilter.q||a.title.toLowerCase().includes(blogFilter.q)));
+ V.innerHTML=`
+ <div class="pagehead"><div><h2 class="disp" style="font-size:30px">Blog &amp; Content</h2><div class="sub">${state.articles.length} articles · ${state.articles.filter(a=>a.status==='published').length} published · ${state.articles.filter(a=>a.status==='draft').length} drafts</div></div>
+   <button class="btn btn-navy btn-sm" data-go="blog/new">${I.plus} New article</button></div>
+ <div class="toolbar">${['all','published','draft'].map(s=>`<button class="chipf ${blogFilter.status===s?'on':''}" data-fstatus="${s}">${s[0].toUpperCase()+s.slice(1)}</button>`).join('')}
+   <div style="flex:1"></div><input class="inp" style="max-width:220px" placeholder="Search articles…" id="blogq" value="${esc(blogFilter.q)}"></div>
+ <div class="card"><table class="tbl"><thead><tr><th>Article</th><th>Category</th><th>Tags</th><th>Status</th><th>Views</th><th></th></tr></thead>
+ <tbody>${list.length?list.map(a=>`<tr>
+   <td data-go="blog/edit/${a.id}" style="cursor:pointer"><div class="cellflex"><img class="rowimg" src="${a.image||'assets/wordmark-dark.png'}" alt=""><div><div class="t-title">${esc(a.title)}</div><div class="t-sub">${esc(a.author)} · ${fmtDate(a.date)}</div></div></div></td>
+   <td><span class="tag">${esc(a.category)}</span></td>
+   <td style="max-width:180px">${a.tags.slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</td>
+   <td>${statusPill(a.status)}</td>
+   <td style="font-variant-numeric:tabular-nums">${a.views.toLocaleString()}</td>
+   <td><div style="display:flex;gap:2px;justify-content:flex-end"><button class="iconbtn" data-go="blog/edit/${a.id}" title="Edit">${I.edit}</button><button class="iconbtn act-del" data-del-article="${a.id}" title="Delete">${I.del}</button></div></td>
+ </tr>`).join(''):`<tr><td colspan="6"><div class="empty">No articles match. <a href="#blog/new" style="color:var(--red);font-weight:600">Create one →</a></div></td></tr>`}</tbody></table></div>`;
+ bindGo(V);
+ V.querySelectorAll('[data-fstatus]').forEach(b=>b.onclick=()=>{blogFilter.status=b.dataset.fstatus;viewBlog(V);});
+ const q=$('#blogq');if(q)q.oninput=()=>{blogFilter.q=q.value.toLowerCase();const p=q.selectionStart;viewBlog(V);const nq=$('#blogq');nq.focus();nq.setSelectionRange(p,p);};
+ V.querySelectorAll('[data-del-article]').forEach(b=>b.onclick=e=>{e.stopPropagation();confirmDel('Delete this article?','This can’t be undone in the prototype.',()=>{state.articles=state.articles.filter(a=>a.id!==b.dataset.delArticle);save('articles');toast('Article deleted');viewBlog(V);});});
+}
+
+/* ---- editor ---- */
+function viewEditor(V,id){
+ const a=id?state.articles.find(x=>x.id===id):null;
+ const draft=a?JSON.parse(JSON.stringify(a)):{id:null,title:'',slug:'',category:'Recovery',tags:[],author:'SportPharm Team',status:'draft',date:new Date().toISOString().slice(0,10),views:0,image:'',excerpt:'',body:''};
+ window._draft=draft;
+ V.innerHTML=`
+ <div class="pagehead"><div><button class="btn btn-ghost btn-sm" data-go="blog" style="margin-bottom:10px">← Back to articles</button><h2 class="disp" style="font-size:30px">${id?'Edit article':'New article'}</h2></div>
+   <div style="display:flex;gap:10px"><button class="btn btn-ghost btn-sm" id="saveDraft">Save draft</button><button class="btn btn-primary btn-sm" id="publishBtn">${draft.status==='published'?'Update':'Publish'}</button></div></div>
+ <div class="editor">
+   <div>
+     <div class="card pad">
+       <div class="f-group"><label>Title</label><input class="inp" id="e_title" value="${esc(draft.title)}" placeholder="A clear, specific headline"></div>
+       <div class="f-group"><label>Slug <span class="hint">the article’s URL</span></label><input class="inp" id="e_slug" value="${esc(draft.slug)}" placeholder="auto-generated-from-title"></div>
+       <div class="f-group"><label>Excerpt <span class="hint">shown on cards &amp; previews</span></label><textarea class="inp" id="e_excerpt" style="min-height:64px" placeholder="One or two sentences…">${esc(draft.excerpt)}</textarea></div>
+       <div class="f-group"><label>Body <span class="hint">supports ## headings, - lists, blank-line paragraphs</span></label><textarea class="inp" id="e_body" placeholder="Write the article…">${esc(draft.body)}</textarea></div>
+     </div>
+   </div>
+   <div>
+     <div class="side-card"><h4>Status</h4><div class="seg" id="e_status">
+       <button data-st="draft" class="${draft.status==='draft'?'on':''}">Draft</button>
+       <button data-st="published" class="pub ${draft.status==='published'?'on pub':''}">Published</button></div>
+       <div class="f-group" style="margin:14px 0 0"><label>Publish date</label><input class="inp" type="date" id="e_date" value="${draft.date}"></div>
+     </div>
+     <div class="side-card"><h4>Organization</h4>
+       <div class="f-group"><label>Category</label><select class="inp" id="e_cat">${CATS.map(c=>`<option ${draft.category===c?'selected':''}>${c}</option>`).join('')}</select></div>
+       <div class="f-group"><label>Author</label><input class="inp" id="e_author" value="${esc(draft.author)}"></div>
+       <div class="f-group" style="margin:0"><label>Tags <span class="hint">enter to add</span></label><div class="tagbox" id="tagbox"><input id="tagin" placeholder="add tag…"></div></div>
+     </div>
+     <div class="side-card"><h4>Featured image</h4>
+       <img class="imgprev" id="imgprev" src="${draft.image||'assets/wordmark-dark.png'}" alt="">
+       <div class="f-group" style="margin:0"><label>Image URL</label><input class="inp" id="e_image" value="${esc(draft.image)}" placeholder="assets/… or https://…"></div>
+       <button class="btn btn-ghost btn-sm" id="uploadBtn" style="width:100%;margin-top:10px">Upload from computer</button>
+       <input type="file" id="fileIn" accept="image/*" hidden>
+     </div>
+   </div>
+ </div>`;
+ bindGo(V);
+ // tags
+ function renderTags(){const tb=$('#tagbox');tb.querySelectorAll('.tagchip').forEach(x=>x.remove());draft.tags.forEach((t,i)=>{const c=document.createElement('span');c.className='tagchip';c.innerHTML=esc(t)+' <b data-rm="'+i+'">×</b>';tb.insertBefore(c,$('#tagin'));});tb.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{draft.tags.splice(+b.dataset.rm,1);renderTags();});}
+ renderTags();
+ $('#tagin').onkeydown=e=>{if((e.key==='Enter'||e.key===',')&&e.target.value.trim()){e.preventDefault();const v=e.target.value.trim().replace(/,$/,'');if(v&&!draft.tags.includes(v))draft.tags.push(v);e.target.value='';renderTags();}};
+ // slug auto
+ $('#e_title').oninput=e=>{draft.title=e.target.value;if(!id&&!$('#e_slug')._touched)$('#e_slug').value=e.target.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');};
+ $('#e_slug').oninput=e=>{e.target._touched=true;};
+ // status seg
+ $('#e_status').querySelectorAll('[data-st]').forEach(b=>b.onclick=()=>{draft.status=b.dataset.st;$('#e_status').querySelectorAll('button').forEach(x=>x.classList.remove('on','pub'));b.classList.add('on');if(b.dataset.st==='published')b.classList.add('pub');$('#publishBtn').textContent=draft.status==='published'?'Update':'Publish';});
+ // image
+ $('#e_image').oninput=e=>{draft.image=e.target.value;$('#imgprev').src=e.target.value||'assets/wordmark-dark.png';};
+ $('#uploadBtn').onclick=()=>$('#fileIn').click();
+ $('#fileIn').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{draft.image=r.result;$('#imgprev').src=r.result;$('#e_image').value='(uploaded image)';};r.readAsDataURL(f);};
+ function collect(){draft.title=$('#e_title').value.trim();draft.slug=$('#e_slug').value.trim()||draft.title.toLowerCase().replace(/[^a-z0-9]+/g,'-');draft.excerpt=$('#e_excerpt').value.trim();draft.body=$('#e_body').value;draft.category=$('#e_cat').value;draft.author=$('#e_author').value.trim();draft.date=$('#e_date').value;if($('#e_image').value.indexOf('(uploaded')!==0)draft.image=$('#e_image').value.trim();}
+ function persist(st){collect();if(!draft.title){toast('Add a title first');return;}draft.status=st;if(id){const i=state.articles.findIndex(x=>x.id===id);state.articles[i]=draft;}else{draft.id=uid('a');state.articles.unshift(draft);}save('articles');toast(st==='published'?'Article published':'Draft saved');location.hash='#blog';}
+ $('#saveDraft').onclick=()=>persist('draft');
+ $('#publishBtn').onclick=()=>persist('published');
+}
+
+/* ============ PRODUCTS ============ */
+let prodFilter='all';
+function viewProducts(V){
+ const cats=['all',...new Set(state.products.map(p=>p.category))];
+ const list=state.products.filter(p=>prodFilter==='all'||p.category===prodFilter);
+ V.innerHTML=`
+ <div class="pagehead"><div><h2 class="disp" style="font-size:30px">Products</h2><div class="sub">${state.products.length} products · ${state.products.filter(p=>p.status==='active').length} active · ${state.products.filter(p=>p.status==='out').length} out of stock</div></div>
+   <button class="btn btn-navy btn-sm" id="newProd">${I.plus} Add product</button></div>
+ <div class="toolbar">${cats.map(c=>`<button class="chipf ${prodFilter===c?'on':''}" data-pcat="${esc(c)}">${c==='all'?'All':esc(c)}</button>`).join('')}</div>
+ <div class="card"><table class="tbl"><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th></th></tr></thead>
+ <tbody>${list.map(p=>`<tr>
+   <td><div class="cellflex"><div class="rowimg" style="display:flex;align-items:center;justify-content:center;background:var(--soft);color:#9aa7b8">${p.image?`<img class="rowimg" src="${p.image}" alt="">`:I.box}</div><div><div class="t-title">${esc(p.name)}</div><div class="t-sub">${esc(p.blurb)}</div></div></div></td>
+   <td><span class="tag">${esc(p.category)}</span></td>
+   <td style="font-weight:700;font-variant-numeric:tabular-nums">${money(p.price)}</td>
+   <td style="font-variant-numeric:tabular-nums">${p.stock}</td>
+   <td>${statusPill(p.status==='draft'?'draft':p.status)}</td>
+   <td><div style="display:flex;gap:2px;justify-content:flex-end"><button class="iconbtn" data-edit-prod="${p.id}">${I.edit}</button><button class="iconbtn act-del" data-del-prod="${p.id}">${I.del}</button></div></td>
+ </tr>`).join('')}</tbody></table></div>`;
+ V.querySelectorAll('[data-pcat]').forEach(b=>b.onclick=()=>{prodFilter=b.dataset.pcat;viewProducts(V);});
+ $('#newProd').onclick=()=>productModal(null,V);
+ V.querySelectorAll('[data-edit-prod]').forEach(b=>b.onclick=()=>productModal(b.dataset.editProd,V));
+ V.querySelectorAll('[data-del-prod]').forEach(b=>b.onclick=()=>confirmDel('Delete this product?','',()=>{state.products=state.products.filter(p=>p.id!==b.dataset.delProd);save('products');toast('Product deleted');viewProducts(V);}));
+}
+function productModal(id,V){
+ const p=id?state.products.find(x=>x.id===id):{id:null,name:'',category:'Topical Rub',price:0,status:'active',stock:0,image:'',blurb:''};
+ openModal(id?'Edit product':'Add product',`
+   <div class="f-group"><label>Name</label><input class="inp" id="pm_name" value="${esc(p.name)}"></div>
+   <div class="f-group"><label>Short description</label><input class="inp" id="pm_blurb" value="${esc(p.blurb)}"></div>
+   <div class="grid2b"><div class="f-group"><label>Category</label><input class="inp" id="pm_cat" value="${esc(p.category)}"></div><div class="f-group"><label>Status</label><select class="inp" id="pm_status"><option value="active" ${p.status==='active'?'selected':''}>Active</option><option value="out" ${p.status==='out'?'selected':''}>Out of stock</option><option value="draft" ${p.status==='draft'?'selected':''}>Draft</option></select></div></div>
+   <div class="grid2b"><div class="f-group"><label>Price (USD)</label><input class="inp" type="number" step="0.01" id="pm_price" value="${p.price}"></div><div class="f-group"><label>Stock</label><input class="inp" type="number" id="pm_stock" value="${p.stock}"></div></div>
+   <div class="f-group" style="margin:0"><label>Image URL <span class="hint">optional</span></label><input class="inp" id="pm_image" value="${esc(p.image)}" placeholder="assets/…"></div>`,
+   ()=>{const np={id:p.id,name:$('#pm_name').value.trim(),blurb:$('#pm_blurb').value.trim(),category:$('#pm_cat').value.trim(),status:$('#pm_status').value,price:parseFloat($('#pm_price').value)||0,stock:parseInt($('#pm_stock').value)||0,image:$('#pm_image').value.trim()};if(!np.name){toast('Add a name');return false;}if(id){state.products[state.products.findIndex(x=>x.id===id)]=np;}else{np.id=uid('p');state.products.push(np);}save('products');toast(id?'Product updated':'Product added');viewProducts(V);});
+}
+
+/* ============ LEADS ============ */
+let leadFilter='all';
+function viewLeads(V){
+ const list=state.leads.filter(l=>leadFilter==='all'||l.status===leadFilter);
+ V.innerHTML=`
+ <div class="pagehead"><div><h2 class="disp" style="font-size:30px">Leads &amp; Contacts</h2><div class="sub">${state.leads.filter(l=>l.status==='new').length} new · ${state.leads.length} total submissions</div></div></div>
+ <div class="toolbar">${['all','new','contacted','archived'].map(s=>`<button class="chipf ${leadFilter===s?'on':''}" data-lf="${s}">${s[0].toUpperCase()+s.slice(1)}</button>`).join('')}</div>
+ <div class="card"><table class="tbl"><thead><tr><th>Name</th><th>Persona</th><th>Source</th><th>Received</th><th>Status</th></tr></thead>
+ <tbody>${list.length?list.map(l=>`<tr data-lead="${l.id}" style="cursor:pointer">
+   <td><div class="t-title">${esc(l.name)}</div><div class="t-sub">${esc(l.email)}</div></td>
+   <td>${personaPill(l.persona)}</td><td class="t-sub">${esc(l.source)}</td><td class="t-sub">${fmtDate(l.date)}</td><td>${statusPill(l.status)}</td>
+ </tr>`).join(''):`<tr><td colspan="5"><div class="empty">No leads in this view.</div></td></tr>`}</tbody></table></div>`;
+ V.querySelectorAll('[data-lf]').forEach(b=>b.onclick=()=>{leadFilter=b.dataset.lf;viewLeads(V);});
+ V.querySelectorAll('[data-lead]').forEach(r=>r.onclick=()=>leadDrawer(r.dataset.lead,V));
+}
+function leadDrawer(id,V){
+ const l=state.leads.find(x=>x.id===id);
+ $('#drawer').innerHTML=`<div class="drawer-ov" data-close><div class="drawer" onclick="event.stopPropagation()">
+   <div class="mh"><h3 class="disp" style="font-size:24px">Lead detail</h3><button class="iconbtn" data-close>${I.close}</button></div>
+   <div class="mb">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px"><div class="avatar" style="width:46px;height:46px;font-size:16px;background:linear-gradient(135deg,var(--navy),var(--navy-3))">${esc(l.name.split(' ').map(w=>w[0]).slice(0,2).join(''))}</div><div><div style="font-weight:700;font-size:16px">${esc(l.name)}</div><a href="mailto:${esc(l.email)}" style="color:var(--red);font-size:13px;font-weight:600">${esc(l.email)}</a></div></div>
+     <div class="grid2b" style="gap:12px;margin-bottom:16px">
+       <div class="side-card" style="margin:0"><h4>Persona</h4>${personaPill(l.persona)}</div>
+       <div class="side-card" style="margin:0"><h4>Status</h4>${statusPill(l.status)}</div>
+       <div class="side-card" style="margin:0"><h4>Source page</h4><div style="font-size:13px">${esc(l.source)}</div></div>
+       <div class="side-card" style="margin:0"><h4>Received</h4><div style="font-size:13px">${fmtDate(l.date)}</div></div>
+     </div>
+     <div class="side-card"><h4>Message</h4><p style="font-size:14px;line-height:1.6;color:#33445c">${esc(l.message)}</p></div>
+     <div class="f-group"><label>Update status</label><div class="seg" id="ld_status">${['new','contacted','archived'].map(s=>`<button data-ls="${s}" class="${l.status===s?'on':''}">${s[0].toUpperCase()+s.slice(1)}</button>`).join('')}</div></div>
+     <a class="btn btn-primary" style="width:100%;margin-top:6px" href="mailto:${esc(l.email)}">${I.mail} Reply by email</a>
+   </div></div></div>`;
+ $('#drawer').querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#drawer').innerHTML='');
+ $('#ld_status').querySelectorAll('[data-ls]').forEach(b=>b.onclick=()=>{l.status=b.dataset.ls;save('leads');$('#ld_status').querySelectorAll('button').forEach(x=>x.classList.remove('on'));b.classList.add('on');toast('Status updated');renderNav('leads');});
+}
+
+/* ============ ANALYTICS ============ */
+function viewAnalytics(V){
+ const topPages=[['/ (Everyday Athlete)',4820],['/wasabirub',3110],['/sports-medicine',2240],['/articles',1980],['/pro-athlete',1540],['/injuries',1120]];
+ const topArt=[...state.articles].filter(a=>a.status==='published').sort((a,b)=>b.views-a.views);
+ const max=Math.max(...topPages.map(p=>p[1]));
+ V.innerHTML=`
+ <div class="pagehead"><div><h2 class="disp" style="font-size:30px">Analytics</h2><div class="sub">Traffic, audience &amp; content performance · last 30 days</div></div></div>
+ <div class="kpis">
+   <div class="kpi"><div class="k-val">42.3k</div><div class="k-lbl">Total page views</div><div class="k-trend up">▲ 12.4%</div></div>
+   <div class="kpi"><div class="k-val">9,847</div><div class="k-lbl">Unique visitors</div><div class="k-trend up">▲ 8.1%</div></div>
+   <div class="kpi"><div class="k-val">2:48</div><div class="k-lbl">Avg. time on site</div><div class="k-trend up">▲ 14s</div></div>
+   <div class="kpi"><div class="k-val">3.9%</div><div class="k-lbl">Lead conversion</div><div class="k-trend up">▲ 0.6%</div></div>
+ </div>
+ <div class="card" style="margin-bottom:16px"><div class="sec-h"><h3>Traffic trend</h3></div><div class="pad">${areaChart(TRAFFIC,'#E0312A')}</div></div>
+ <div class="grid2">
+   <div class="card"><div class="sec-h"><h3>Top pages</h3></div><div class="pad"><div class="barlist">${topPages.map(([n,v])=>`<div class="barrow"><span class="t-sub" style="color:var(--ink);font-weight:600">${esc(n)}</span><div class="track"><i style="width:${(v/max*100).toFixed(0)}%"></i></div><span class="num">${v.toLocaleString()}</span></div>`).join('')}</div></div></div>
+   <div class="card"><div class="sec-h"><h3>Audience split</h3></div><div class="pad">${donut()}</div></div>
+ </div>
+ <div class="card" style="margin-top:16px"><div class="sec-h"><h3>Top performing articles</h3><a href="#blog">Manage →</a></div>
+   <table class="tbl"><thead><tr><th>Article</th><th>Category</th><th>Views</th><th>Trend</th></tr></thead><tbody>${topArt.map((a,i)=>`<tr><td><div class="cellflex"><span class="disp" style="font-size:20px;color:var(--muted);width:20px">${i+1}</span><div class="t-title">${esc(a.title)}</div></div></td><td><span class="tag">${esc(a.category)}</span></td><td style="font-weight:700;font-variant-numeric:tabular-nums">${a.views.toLocaleString()}</td><td><span class="pill p-green"><i class="dot"></i>▲ ${(6+i*3)}%</span></td></tr>`).join('')}</tbody></table></div>`;
+}
+
+/* ============ SETTINGS ============ */
+function viewSettings(V){
+ V.innerHTML=`
+ <div class="pagehead"><div><h2 class="disp" style="font-size:30px">Settings</h2><div class="sub">Prototype configuration &amp; data</div></div></div>
+ <div class="grid2b">
+   <div class="card pad"><h3 style="margin-bottom:6px">Brand</h3><p class="t-sub" style="margin-bottom:16px">Used across the console.</p>
+     <div class="f-group"><label>Site name</label><input class="inp" value="SportPharm" readonly></div>
+     <div class="f-group"><label>Primary color</label><div style="display:flex;align-items:center;gap:10px"><span style="width:26px;height:26px;border-radius:7px;background:var(--red);display:inline-block"></span><input class="inp" value="#E0312A" readonly style="max-width:140px"></div></div>
+     <div class="f-group" style="margin:0"><label>Content categories</label><div>${CATS.map(c=>`<span class="tag">${c}</span>`).join('')}</div></div>
+   </div>
+   <div class="card pad"><h3 style="margin-bottom:6px">Prototype data</h3><p class="t-sub" style="margin-bottom:16px">All content is stored in your browser (localStorage). Nothing is sent to a server yet — this maps directly onto the Payload CMS models in the production build.</p>
+     <div class="side-card" style="margin:0 0 12px"><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>Articles</span><b>${state.articles.length}</b></div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-top:6px"><span>Products</span><b>${state.products.length}</b></div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-top:6px"><span>Leads</span><b>${state.leads.length}</b></div></div>
+     <button class="btn btn-ghost btn-sm" id="resetData" style="width:100%">Reset demo data</button>
+   </div>
+ </div>`;
+ $('#resetData').onclick=()=>confirmDel('Reset all demo data?','This restores the original sample articles, products and leads.',()=>{['articles','products','leads'].forEach(k=>{state[k]=JSON.parse(JSON.stringify(SEED[k]));save(k);});toast('Demo data reset');router();});
+}
+
+/* ============ MODAL / CONFIRM ============ */
+function openModal(title,bodyHTML,onSave){
+ $('#modal').innerHTML=`<div class="ov" data-close><div class="modal" onclick="event.stopPropagation()"><div class="mh"><h3 class="disp" style="font-size:23px">${esc(title)}</h3><button class="iconbtn" data-close>${I.close}</button></div><div class="mb">${bodyHTML}</div><div class="mf"><button class="btn btn-ghost btn-sm" data-close>Cancel</button><button class="btn btn-primary btn-sm" id="modalSave">Save</button></div></div></div>`;
+ $('#modal').querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#modal').innerHTML='');
+ $('#modalSave').onclick=()=>{if(onSave()!==false)$('#modal').innerHTML='';};
+}
+function confirmDel(title,msg,onYes){
+ $('#modal').innerHTML=`<div class="ov" data-close><div class="modal" style="max-width:400px" onclick="event.stopPropagation()"><div class="mb" style="text-align:center;padding-top:26px"><div style="width:48px;height:48px;border-radius:12px;background:#fbe7e6;color:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 14px">${I.del}</div><h3 style="font-size:18px;margin-bottom:6px">${esc(title)}</h3><p class="t-sub">${esc(msg)}</p></div><div class="mf" style="justify-content:center"><button class="btn btn-ghost btn-sm" data-close>Cancel</button><button class="btn btn-primary btn-sm" id="delYes" style="background:var(--red)">Delete</button></div></div></div>`;
+ $('#modal').querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('#modal').innerHTML='');
+ $('#delYes').onclick=()=>{onYes();$('#modal').innerHTML='';};
+}
+function bindGo(scope){scope.querySelectorAll('[data-go]').forEach(el=>el.onclick=e=>{if(e.target.closest('[data-del-article],[data-del-prod],[data-edit-prod]'))return;location.hash='#'+el.dataset.go;});}
+
+/* ============ BOOT ============ */
+$('#loginForm').onsubmit=e=>{e.preventDefault();sessionStorage.setItem('sp_admin_auth','1');$('#login').style.display='none';$('#app').hidden=false;if(!location.hash)location.hash='#dashboard';router();};
+$('#logout').onclick=()=>{sessionStorage.removeItem('sp_admin_auth');location.reload();};
+$('#globalsearch').oninput=e=>{const v=e.target.value.trim();if(v.length>1&&!location.hash.startsWith('#blog/')){blogFilter.q=v.toLowerCase();location.hash='#blog';}};
+window.addEventListener('hashchange',router);
+if(sessionStorage.getItem('sp_admin_auth')){$('#login').style.display='none';$('#app').hidden=false;if(!location.hash)location.hash='#dashboard';router();}
+</script>
+</body>
+</html>

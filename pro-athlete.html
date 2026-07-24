@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="SportPharm professional athlete services mockup">
   <title>SportPharm | Professional Athlete Services</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     
     :root{--red:#f51f2a;--navy:#0b1f3a;--deep:#071426;--blue:#1552ad;--ink:#101b2d;--muted:#617087;--soft:#f3f6f9;--line:#dde4ec}
@@ -27,14 +27,72 @@
     .modal{align-items:center;background:#020914c7;display:none;inset:0;justify-content:center;padding:20px;position:fixed;z-index:50}.modal.open{display:flex}.dialog{background:#fff;max-height:90vh;max-width:570px;overflow:auto;padding:38px;position:relative;width:100%}.dialog h2{font-size:40px;margin-bottom:8px}.dialog>p{color:var(--muted);line-height:1.55}.close{background:none;border:0;cursor:pointer;font-size:28px;position:absolute;right:18px;top:12px}.fields{display:grid;gap:13px;grid-template-columns:1fr 1fr}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800}.field input,.field select,.field textarea{border:1px solid #bfc8d3;border-radius:2px;font:inherit;padding:12px}.field textarea{min-height:90px;resize:vertical}.success{background:#eaf7ef;color:#165d35;display:none;margin-top:16px;padding:14px}.success.show{display:block}
     @media(max-width:980px){.header{grid-template-columns:1fr auto}.menu{display:block}.nav{background:#fff;display:none;flex-direction:column;grid-column:1/-1;left:0;padding:25px 4vw;position:absolute;top:75px;width:100%}.nav.open{display:flex}.actions{display:none}.grid4{grid-template-columns:repeat(2,1fr)}.clean{grid-template-columns:1fr}.clean-image{min-height:450px}.process-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:700px){.hero{min-height:620px}.hero-copy{padding-top:72px}.hero h1{font-size:64px}.quick-grid,.split,.product,.resource-grid,.footer{grid-template-columns:1fr}.quick-grid button,.quick-grid a{border-left:0;border-top:1px solid var(--line);justify-content:flex-start}.grid4{grid-template-columns:1fr}.feature-image img{height:360px}.note{bottom:-20px;right:10px}.clean-copy{padding:65px 7vw}.clean-copy h2,.product-copy h2{font-size:50px}.verified{bottom:20px;left:20px}.process-grid{grid-template-columns:1fr}.product-visual{padding:35px}.product-copy{padding:60px 7vw}.cta{align-items:flex-start;flex-direction:column;gap:25px}.cta h2{font-size:42px}.footer{gap:28px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}}
+
+    /* main-site style header */
+    .header2{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.97);border-bottom:1px solid #e8edf2}
+    .h2wrap{display:flex;align-items:center;gap:18px;height:76px;padding:0 4vw}
+    .logo2{display:flex;flex-direction:column;line-height:1;flex-shrink:0}
+    .logo2 img{width:150px;display:block}
+    .logo2 .tag2{font-family:Georgia,'Roboto Slab',serif;font-weight:700;font-size:10px;color:var(--ink);margin-top:5px;white-space:nowrap}
+    .mainnav2{display:flex;align-items:center;gap:2px;margin-left:auto;font-family:'Inter',Arial,sans-serif}
+    .ni{position:relative}
+    .nl{display:inline-flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;font-family:'Inter',Arial,sans-serif;font-weight:600;font-size:14px;color:var(--ink);padding:8px 11px;border-radius:7px;white-space:nowrap}
+    .nl:hover{color:var(--red)}
+    .nl .crt{width:11px;height:11px;opacity:.5}
+    .dd{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;min-width:230px;box-shadow:0 20px 40px -16px #10294a40;opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s;z-index:40}
+    .ni:hover .dd{opacity:1;visibility:visible;transform:translateY(0)}
+    .dd a{display:block;padding:9px 12px;border-radius:7px;font-weight:600;font-size:13.5px;color:var(--ink)}
+    .dd a:hover{background:var(--soft);color:var(--red)}
+    .dd a.on{color:var(--red)}
+    .caps2{display:flex;align-items:center;gap:10px;margin-left:14px;padding-left:16px;border-left:1px solid var(--line)}
+    .cap2{display:inline-flex;align-items:center;gap:7px;font-family:'Bebas Neue','Arial Narrow',sans-serif;font-size:17px;letter-spacing:.05em;text-transform:uppercase;padding:9px 18px;border-radius:999px;white-space:nowrap;transition:.16s}
+    .cap2 svg{width:15px;height:15px}
+    .capred{background:var(--red);color:#fff;box-shadow:0 9px 24px -9px #f51f2ab3}.capred:hover{transform:translateY(-1px)}
+    .capnavy{background:var(--navy);color:#fff}.capnavy:hover{background:#123059;transform:translateY(-1px)}
+    .mobilemenu2{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:12px 4vw 20px;font-family:'Inter',Arial,sans-serif}
+    .mobilemenu2.open{display:flex}
+    .mobilemenu2 a{font-weight:600;font-size:14px;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line)}
+    .mm2-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:12px 0 2px}
+    @media(max-width:1120px){.mainnav2,.caps2{display:none}.header2 .menu{display:block;margin-left:auto}}
   </style>
 </head>
 <body>
-  <header class="header">
-    <a class="logo" href="#top"><img src="assets/wordmark-dark.png" alt="SportPharm"></a>
-    <button class="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
-    <nav class="nav"><a href="#services">Athlete Services</a><a href="#clean">Clean Sport</a><a href="#process">How It Works</a><a href="#resources">Learn</a></nav>
-    <div class="actions"><button class="btn red small" data-modal="pharmacist">Talk to a Sports Pharmacist</button><a class="btn outline small" href="#team">For Professionals</a></div>
+  <header class="header2">
+    <div class="h2wrap">
+      <a class="logo2" href="index.html"><img src="assets/wordmark-dark.png" alt="SportPharm"><span class="tag2">Stay ready for whatever moves you.</span></a>
+      <nav class="mainnav2">
+        <div class="ni">
+          <button class="nl">What Brings You Here <svg class="crt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd"><a href="index.html">Everyday Athlete</a><a class="on" href="pro-athlete.html">Pro Athlete</a><a href="sports-medicine.html">Healthcare Professional</a></div>
+        </div>
+        <div class="ni">
+          <button class="nl">Services <svg class="crt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd"><a href="sports-medicine.html#compounding">Specialized Compounding</a><a href="sports-medicine.html#repackaging">Drug Repackaging</a><a href="sports-medicine.html#blister">Blister Packaging</a><a href="sports-medicine.html#inventory">Inventory Management</a><a href="sports-medicine.html#retail">Retail Pharmacy Services</a><a href="sports-medicine.html#concierge">Concierge Sports Pharmacy</a><a href="sports-medicine.html#supplements">Supplement Support</a><a href="sports-medicine.html#customized">Customized Services</a></div>
+        </div>
+        <div class="ni">
+          <button class="nl">Products <svg class="crt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd"><a href="wasabirub.html">WasabiRub</a><a href="coming-soon.html?f=The+Professional+Catalog">Professional Catalog</a><a href="coming-soon.html?f=Professional+Supplements">Supplements</a><a href="coming-soon.html?f=Compounded+Medications">Compounded Medications</a></div>
+        </div>
+        <div class="ni">
+          <button class="nl">Resources <svg class="crt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd"><a href="articles.html">Blog &amp; Articles</a><a href="coming-soon.html?f=Education+%26+CEUs">Education &amp; CEUs</a><a href="coming-soon.html?f=Professional+Protocols">Protocols</a></div>
+        </div>
+        <a class="nl" href="coming-soon.html?f=Contact">Contact</a>
+      </nav>
+      <div class="caps2">
+        <a class="cap2 capred" href="wasabirub.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.5 8.5l7 7"/></svg> WasabiRub</a>
+        <a class="cap2 capnavy" href="sports-medicine.html">For Professionals</a>
+      </div>
+      <button class="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+    <nav class="mobilemenu2" id="mobilemenu2">
+      <div class="mm2-lbl">What Brings You Here</div>
+      <a href="index.html">Everyday Athlete</a><a href="pro-athlete.html">Pro Athlete</a><a href="sports-medicine.html">Healthcare Professional</a>
+      <a href="sports-medicine.html#how-we-support">Services</a>
+      <a href="wasabirub.html">Products</a>
+      <a href="articles.html">Resources</a>
+      <a href="coming-soon.html?f=Contact">Contact</a>
+    </nav>
   </header>
 
   <main>
@@ -144,7 +202,7 @@
     modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
     document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
     document.getElementById("demo-form").addEventListener("submit",e=>{e.preventDefault();success.classList.add("show")});
-    const menu=document.querySelector(".menu"),nav=document.querySelector(".nav");
+    const menu=document.querySelector(".menu"),nav=document.getElementById("mobilemenu2");
     menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));
   </script>

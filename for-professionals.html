@@ -50,6 +50,13 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .dropdown a:hover{background:var(--soft);color:var(--sp-red)}
 .dropdown a.on{color:var(--sp-red)}
 .mm-lbl{font-family:'Inter',sans-serif;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:12px 0 2px}
+.nav-caps{display:flex;align-items:center;gap:10px;margin-left:16px;padding-left:18px;border-left:1px solid var(--line)}
+.cap{display:inline-flex;align-items:center;gap:7px;font-family:'Bebas Neue',sans-serif;font-weight:400;font-size:1rem;letter-spacing:.05em;text-transform:uppercase;padding:9px 18px;border-radius:999px;white-space:nowrap;transition:.16s}
+.cap svg{width:15px;height:15px}
+.cap-red{background:var(--sp-red);color:#fff;box-shadow:0 9px 24px -9px rgba(224,49,42,.7)}
+.cap-red:hover{background:var(--sp-red-2);transform:translateY(-1px);box-shadow:0 12px 26px -9px rgba(224,49,42,.75)}
+.cap-navy{background:var(--navy);color:#fff}
+.cap-navy:hover{background:#0f2747;transform:translateY(-1px)}
 .mainnav a{font-family:'Inter',sans-serif;font-weight:600;font-size:.86rem;color:var(--ink);padding:8px 11px;border-radius:7px;white-space:nowrap;transition:.14s}
 .mainnav a:hover,.mainnav a.on{color:var(--sp-red)}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
@@ -192,7 +199,7 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
   .foot-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:900px){
-  .mainnav,.switcher,.nav-btns{display:none}
+  .mainnav,.nav-caps{display:none}
   .menu-btn{display:grid}
   .split .grid,.prod .grid,.start .row,.pharm .row,.blog .row{grid-template-columns:1fr}
   .prod .lft{padding:40px 0}
@@ -214,11 +221,13 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
         <div class="dropdown"><a href="index.html">Everyday Athlete</a><a href="pro-athlete.html">Pro Athlete</a><a href="for-professionals.html" class="on">Healthcare Professional</a></div>
       </div>
       <a href="athlete-hub.html">Athlete Hub</a>
-      <a href="for-professionals.html" class="on">For Professionals</a>
-      <a href="wasabirub.html">WasabiRub</a>
       <a href="coming-soon.html?f=Articles">Articles</a>
       <a href="coming-soon.html?f=Contact">Contact</a>
     </nav>
+    <div class="nav-caps">
+      <a class="cap cap-red" href="wasabirub.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.5 8.5l7 7"/></svg> WasabiRub</a>
+      <a class="cap cap-navy" href="for-professionals.html">For Professionals</a>
+    </div>
     <button class="menu-btn" id="menuBtn" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   </div>
   <nav class="mobilemenu" id="mobilemenu">

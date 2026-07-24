@@ -5,25 +5,50 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="SportPharm guidance for everyday athletes.">
   <title>SportPharm | Everyday Athlete</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Roboto+Condensed:wght@700;900&display=swap" rel="stylesheet">
   <style>
     :root{--red:#ed2029;--navy:#0a203d;--blue:#174da0;--ink:#13223a;--muted:#5d6c82;--soft:#f3f5f8;--line:#dce3eb;--white:#fff}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif}img{display:block;width:100%}a{color:inherit;text-decoration:none}button{font:inherit}h1,h2,h3,p{margin-top:0}.display,h1,h2,h3{font-family:"Arial Narrow","Roboto Condensed",Impact,sans-serif;font-stretch:condensed;letter-spacing:-.035em;text-transform:uppercase}h1 span,h2 span{color:var(--red)}
     .header{align-items:center;background:#fff;border-bottom:1px solid #e5e9ef;display:grid;grid-template-columns:190px 1fr auto;height:76px;padding:0 4vw;position:sticky;top:0;z-index:30}.brand{color:var(--red);font-family:Georgia,serif;font-size:27px;font-style:italic;font-weight:900;letter-spacing:-2px}.brand small{color:#111;display:block;font-family:Arial,sans-serif;font-size:7px;font-style:normal;letter-spacing:.2px;margin-top:-3px}.nav{display:flex;gap:28px;justify-content:center}.nav a{font-size:12px;font-weight:800}.header-actions{display:flex;gap:10px}.menu{display:none}
     .button{align-items:center;border:1px solid transparent;border-radius:3px;cursor:pointer;display:inline-flex;font-size:12px;font-weight:900;justify-content:center;min-height:44px;padding:0 19px;transition:.18s}.button:hover{box-shadow:0 10px 22px #07172b28;transform:translateY(-2px)}.primary{background:var(--red);color:#fff}.outline{background:#fff;border-color:#8390a2}.ghost{border-color:#ffffffb3;color:#fff}
     .hero{background:var(--navy);color:#fff;min-height:625px;overflow:hidden;position:relative}.hero>img{height:100%;inset:0;object-fit:cover;position:absolute}.hero::after{background:linear-gradient(90deg,#06182ff2 0%,#06182fc9 37%,#06182f20 74%);content:"";inset:0;position:absolute}.hero-copy{max-width:620px;padding:100px 4vw 70px;position:relative;z-index:2}.eyebrow{color:#9fbde5;font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(62px,7vw,98px);line-height:.87;margin:16px 0 25px}.hero-lead{color:#e0e7f0;font-size:17px;line-height:1.6;max-width:560px}.button-row{display:flex;flex-wrap:wrap;gap:13px;margin-top:28px}.text-link{align-items:center;color:#fff;display:flex;font-size:12px;font-weight:900;padding:0 8px}.trust{color:#cad6e5;font-size:12px;margin-top:26px}
-    .pathways{background:#fff;padding:28px 4vw 32px}.section-title{text-align:center}.section-title h2{font-size:34px;margin-bottom:8px}.section-title p{color:var(--muted);font-size:14px}.path-grid{display:grid;gap:12px;grid-template-columns:repeat(4,1fr);margin:22px auto 0;max-width:1220px}.path-card{align-items:center;border:1px solid var(--line);border-radius:5px;display:grid;gap:14px;grid-template-columns:48px 1fr;min-height:112px;padding:18px;transition:.18s}.path-card:hover{border-color:#aeb8c5;box-shadow:0 10px 26px #07172b12;transform:translateY(-3px)}.path-icon{align-items:center;border-radius:50%;display:flex;font-size:20px;font-weight:900;height:44px;justify-content:center;width:44px}.path-icon.red{background:#fff0f1;color:var(--red)}.path-icon.blue{background:#eef4ff;color:var(--blue)}.path-card h3{font-size:18px;margin:0 0 4px}.path-card p{color:var(--muted);font-size:11px;line-height:1.45;margin:0}
-    section.block{padding:90px 5vw}.belong{align-items:center;display:grid;gap:6vw;grid-template-columns:1.1fr .9fr}.belong-images{display:grid;gap:6px;grid-template-columns:1fr 1fr}.belong-images img{height:230px;object-fit:cover}.belong-copy h2,.intro h2{font-size:clamp(44px,5vw,70px);line-height:.95}.belong-copy p,.intro>p{color:var(--muted);line-height:1.7}.mini-list{display:flex;flex-wrap:wrap;gap:8px;margin:23px 0}.mini-list span{background:var(--soft);border-radius:999px;font-size:11px;font-weight:800;padding:9px 13px}
-    .stop{background:var(--soft)}.intro{margin:0 auto 38px;max-width:760px;text-align:center}.cards3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin:auto;max-width:1160px}.image-card{background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden}.image-card img{height:250px;object-fit:cover}.card-copy{padding:22px}.card-copy h3{font-size:24px;margin:0 0 8px}.card-copy p{color:var(--muted);font-size:13px;line-height:1.6}.arrow{color:var(--red);font-weight:900}.safety{color:var(--muted);font-size:11px;margin:24px auto 0;max-width:750px;text-align:center}
-    .recovery-grid{display:grid;gap:38px;grid-template-columns:repeat(3,1fr);margin:40px auto 0;max-width:1120px;position:relative}.recovery-card{position:relative}.recovery-card:not(:last-child)::after{color:#9da9b7;content:"→";font-size:30px;position:absolute;right:-30px;top:145px}.recovery-card img{border-radius:7px;height:260px;object-fit:cover}.step-number{align-items:center;background:var(--blue);border:4px solid #fff;border-radius:50%;color:#fff;display:flex;font-size:14px;font-weight:900;height:40px;justify-content:center;left:14px;position:absolute;top:14px;width:40px}.recovery-card h3{font-size:27px;margin:18px 0 7px}.recovery-card p{color:var(--muted);font-size:13px;line-height:1.6}
-    .product{align-items:stretch;background:linear-gradient(90deg,#fff 0%,#f4f5f7 100%);display:grid;grid-template-columns:.75fr 1.25fr;padding:0}.product-copy{align-self:center;padding:65px 7vw}.product-copy h2{font-size:clamp(44px,5vw,68px);line-height:.95}.product-copy p{color:var(--muted);line-height:1.7}.product img{height:100%;max-height:510px;object-fit:cover}
+    .pathways{background:#fff;padding:26px 4vw 30px}.section-title{text-align:center}.section-title h2{font-size:34px;margin-bottom:8px}.section-title p{color:var(--muted);font-size:14px}.path-grid{display:grid;gap:12px;grid-template-columns:repeat(4,1fr);margin:22px auto 0;max-width:1220px}.path-card{align-items:center;border:1px solid var(--line);border-radius:5px;display:grid;gap:14px;grid-template-columns:48px 1fr;min-height:112px;padding:18px;transition:.18s}.path-card:hover{border-color:#aeb8c5;box-shadow:0 10px 26px #07172b12;transform:translateY(-3px)}.path-icon{align-items:center;border-radius:50%;display:flex;font-size:20px;font-weight:900;height:44px;justify-content:center;width:44px}.path-icon.red{background:#fff0f1;color:var(--red)}.path-icon.blue{background:#eef4ff;color:var(--blue)}.path-card h3{font-size:18px;margin:0 0 4px}.path-card p{color:var(--muted);font-size:11px;line-height:1.45;margin:0}
+    section.block{padding:62px 5vw}.belong{align-items:center;display:grid;gap:6vw;grid-template-columns:1.1fr .9fr}.belong-images{display:grid;gap:6px;grid-template-columns:1fr 1fr}.belong-images img{height:230px;object-fit:cover}.belong-copy h2,.intro h2{font-size:clamp(44px,5vw,70px);line-height:.95}.belong-copy p,.intro>p{color:var(--muted);line-height:1.7}.mini-list{display:flex;flex-wrap:wrap;gap:8px;margin:23px 0}.mini-list span{background:var(--soft);border-radius:999px;font-size:11px;font-weight:800;padding:9px 13px}
+    .stop{background:var(--soft)}.intro{margin:0 auto 30px;max-width:760px;text-align:center}.cards3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin:auto;max-width:1160px}.image-card{background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden}.image-card img{height:250px;object-fit:cover}.card-copy{padding:22px}.card-copy h3{font-size:24px;margin:0 0 8px}.card-copy p{color:var(--muted);font-size:13px;line-height:1.6}.arrow{color:var(--red);font-weight:900}.safety{color:var(--muted);font-size:11px;margin:24px auto 0;max-width:750px;text-align:center}
+    .recovery-grid{display:grid;gap:38px;grid-template-columns:repeat(3,1fr);margin:32px auto 0;max-width:1120px;position:relative}.recovery-card{position:relative}.recovery-card:not(:last-child)::after{color:#9da9b7;content:"→";font-size:30px;position:absolute;right:-30px;top:145px}.recovery-card img{border-radius:7px;height:260px;object-fit:cover}.step-number{align-items:center;background:var(--blue);border:4px solid #fff;border-radius:50%;color:#fff;display:flex;font-size:14px;font-weight:900;height:40px;justify-content:center;left:14px;position:absolute;top:14px;width:40px}.recovery-card h3{font-size:27px;margin:18px 0 7px}.recovery-card p{color:var(--muted);font-size:13px;line-height:1.6}
+    .product{align-items:stretch;background:linear-gradient(90deg,#fff 0%,#f4f5f7 100%);display:grid;grid-template-columns:.75fr 1.25fr;padding:0}.product-copy{align-self:center;padding:52px 7vw}.product-copy h2{font-size:clamp(44px,5vw,68px);line-height:.95}.product-copy p{color:var(--muted);line-height:1.7}.product img{height:100%;max-height:510px;object-fit:cover}
     .pharmacy{background:var(--soft)}.pharmacy-grid{display:grid;gap:1px;grid-template-columns:repeat(3,1fr);margin:40px auto 28px;max-width:1120px}.pharmacy-card{background:#fff;min-height:245px;padding:32px;text-align:center}.round-icon{align-items:center;border:1px solid;border-radius:50%;color:var(--red);display:flex;font-weight:900;height:52px;justify-content:center;margin:0 auto 28px;width:52px}.pharmacy-card:nth-child(2) .round-icon{color:var(--blue)}.pharmacy-card h3{font-size:22px}.pharmacy-card p{color:var(--muted);font-size:13px;line-height:1.65}.center{text-align:center}
     .articles{background:#fff}.article-grid{display:grid;gap:18px;grid-template-columns:repeat(3,1fr);margin:35px auto 0;max-width:1160px}.article{border:1px solid var(--line);border-radius:7px;overflow:hidden}.article img{height:210px;object-fit:cover}.article div{padding:20px}.article small{color:var(--red);font-size:9px;font-weight:900;text-transform:uppercase}.article h3{font-family:Arial,sans-serif;font-size:17px;letter-spacing:0;line-height:1.35;margin:8px 0 17px;text-transform:none}.article a{font-size:11px;font-weight:900}
-    .cta{align-items:center;background:linear-gradient(90deg,#071b35,#0d3769);color:#fff;display:flex;gap:50px;justify-content:space-between;padding:55px 7vw}.cta h2{font-size:clamp(36px,4vw,56px);line-height:.95;margin:0;max-width:650px}.footer{background:#050b13;color:#dce3ec;display:grid;gap:5vw;grid-template-columns:1.4fr repeat(3,1fr);padding:60px 6vw}.footer .brand{display:inline-block}.footer h3{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.05em;text-transform:none}.footer a,.footer p{color:#8897aa;display:block;font-size:11px;line-height:1.8}
+    .cta{align-items:center;background:linear-gradient(90deg,#071b35,#0d3769);color:#fff;display:flex;gap:50px;justify-content:space-between;padding:46px 7vw}.cta h2{font-size:clamp(36px,4vw,56px);line-height:.95;margin:0;max-width:650px}.footer{background:#050b13;color:#dce3ec;display:grid;gap:5vw;grid-template-columns:1.4fr repeat(3,1fr);padding:60px 6vw}.footer .brand{display:inline-block}.footer h3{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.05em;text-transform:none}.footer a,.footer p{color:#8897aa;display:block;font-size:11px;line-height:1.8}
     @media(max-width:950px){.header{grid-template-columns:1fr auto}.header-actions{display:none}.menu{background:none;border:0;display:block}.menu i{background:var(--navy);display:block;height:2px;margin:5px;width:24px}.nav{background:#fff;display:none;flex-direction:column;grid-column:1/-1;left:0;padding:25px 4vw;position:absolute;top:75px;width:100%}.nav.open{display:flex}.path-grid{grid-template-columns:repeat(2,1fr)}.belong{grid-template-columns:1fr}.cards3,.article-grid,.pharmacy-grid{grid-template-columns:1fr}.image-card img,.article img{height:300px}.recovery-grid{grid-template-columns:1fr}.recovery-card:not(:last-child)::after{bottom:-30px;left:50%;right:auto;top:auto;transform:rotate(90deg)}.product{grid-template-columns:1fr}.product img{height:420px}.footer{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:600px){.header{height:68px}.nav{top:67px}.hero{min-height:660px}.hero-copy{padding:85px 6vw 60px}.hero h1{font-size:60px}.path-grid{grid-template-columns:1fr}.path-card{min-height:95px}.belong-images img{height:165px}section.block{padding:70px 6vw}.image-card img,.article img{height:230px}.recovery-card img{height:230px}.product-copy{padding:60px 6vw}.product img{height:320px}.cta{align-items:flex-start;flex-direction:column}.footer{grid-template-columns:1fr}}
+    @media(max-width:600px){.header{height:68px}.nav{top:67px}.hero{min-height:660px}.hero-copy{padding:85px 6vw 60px}.hero h1{font-size:60px}.path-grid{grid-template-columns:1fr}.path-card{min-height:95px}.belong-images img{height:165px}section.block{padding:52px 6vw}.image-card img,.article img{height:230px}.recovery-card img{height:230px}.product-copy{padding:60px 6vw}.product img{height:320px}.cta{align-items:flex-start;flex-direction:column}.footer{grid-template-columns:1fr}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
+    .header2{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.98);border-bottom:1px solid #e5e9ef}
+    .h2wrap{display:flex;align-items:center;gap:18px;height:76px;padding:0 4vw}
+    .logo2{display:flex;flex-direction:column;line-height:1;flex-shrink:0}
+    .logo2 img{width:150px;display:block}
+    .logo2 .tag2{font-family:Georgia,serif;font-weight:700;font-size:10px;color:var(--ink);margin-top:5px;white-space:nowrap;text-transform:none;letter-spacing:normal;font-stretch:normal}
+    .mainnav2{display:flex;align-items:center;gap:2px;margin-left:auto;font-family:"Inter",Arial,sans-serif}
+    .ni{position:relative}
+    .nl{display:inline-flex;align-items:center;gap:5px;background:none;border:0;cursor:pointer;font-family:"Inter",Arial,sans-serif;font-weight:600;font-size:14px;color:var(--ink);padding:8px 11px;border-radius:7px;white-space:nowrap;text-transform:none;letter-spacing:normal}
+    .nl:hover{color:var(--red)}
+    .nl .crt{width:11px;height:11px;opacity:.5}
+    .dd{position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;min-width:232px;box-shadow:0 20px 40px -16px #10294a40;opacity:0;visibility:hidden;transform:translateY(6px);transition:.16s;z-index:40}
+    .ni:hover .dd{opacity:1;visibility:visible;transform:translateY(0)}
+    .dd a{display:block;padding:9px 12px;border-radius:7px;font-weight:600;font-size:13.5px;color:var(--ink);text-transform:none;letter-spacing:normal}
+    .dd a:hover{background:var(--soft);color:var(--red)}
+    .dd a.on{color:var(--red)}
+    .caps2{display:flex;align-items:center;gap:10px;margin-left:14px;padding-left:16px;border-left:1px solid var(--line)}
+    .cap2{display:inline-flex;align-items:center;gap:7px;font-family:"Bebas Neue","Arial Narrow",sans-serif;font-size:17px;letter-spacing:.05em;text-transform:uppercase;padding:9px 18px;border-radius:999px;white-space:nowrap;transition:.16s;font-stretch:normal}
+    .cap2 svg{width:15px;height:15px}
+    .capred{background:var(--red);color:#fff;box-shadow:0 9px 24px -9px rgba(237,32,41,.7)}.capred:hover{transform:translateY(-1px)}
+    .capnavy{background:var(--navy);color:#fff}.capnavy:hover{background:#123059;transform:translateY(-1px)}
+    .mobilemenu2{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--line);padding:12px 4vw 20px;font-family:"Inter",Arial,sans-serif}
+    .mobilemenu2.open{display:flex}
+    .mobilemenu2 a{font-weight:600;font-size:14px;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line);text-transform:none}
+    .mm2-lbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);padding:12px 0 2px}
+    @media(max-width:1120px){.mainnav2,.caps2{display:none}.header2 .menu{display:block;margin-left:auto}}
     .pmodal{position:fixed;inset:0;z-index:200;background:rgba(8,16,30,.72);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:24px}
     .pmodal.show{display:flex}
     .pmodal-card{background:#fff;border-radius:20px;max-width:1040px;width:100%;max-height:92vh;overflow:auto;padding:38px 36px 28px;text-align:center;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
@@ -41,11 +66,33 @@
   </style>
 </head>
 <body>
-  <header class="header">
-    <a class="brand" href="#top">SPORTPHARM<small>WE TAKE OUR DRUGS SERIOUSLY.</small></a>
-    <button class="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
-    <nav class="nav"><a href="#belong">Athletes</a><a href="#recovery">Recovery</a><a href="#pharmacy">Sports Pharmacy</a><a href="#product">Products</a><a href="#articles">Learn</a></nav>
-    <div class="header-actions"><a class="button primary" href="#pathways">Find Your Next Step</a><a class="button outline" href="sports-medicine.html">For Professionals</a></div>
+  <header class="header2">
+    <div class="h2wrap">
+      <a class="logo2" href="index.html"><img src="assets/wordmark-dark.png" alt="SportPharm"><span class="tag2">Stay ready for whatever moves you.</span></a>
+      <nav class="mainnav2">
+        <div class="ni">
+          <button class="nl">What Brings You Here <svg class="crt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dd"><a class="on" href="index.html">Everyday Athlete</a><a href="pro-athlete.html">Pro Athlete</a><a href="sports-medicine.html">Healthcare Professional</a></div>
+        </div>
+        <a class="nl" href="athlete-hub.html">Athlete Hub</a>
+        <a class="nl" href="articles.html">Articles</a>
+        <a class="nl" href="coming-soon.html?f=Contact">Contact</a>
+      </nav>
+      <div class="caps2">
+        <a class="cap2 capred" href="wasabirub.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="9" width="18" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M8.5 8.5l7 7"/></svg> WasabiRub</a>
+        <a class="cap2 capnavy" href="sports-medicine.html">For Professionals</a>
+      </div>
+      <button class="menu" aria-label="Toggle navigation" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+    <nav class="mobilemenu2" id="mobilemenu2">
+      <div class="mm2-lbl">What Brings You Here</div>
+      <a href="index.html">Everyday Athlete</a><a href="pro-athlete.html">Pro Athlete</a><a href="sports-medicine.html">Healthcare Professional</a>
+      <a href="athlete-hub.html">Athlete Hub</a>
+      <a href="articles.html">Articles</a>
+      <a href="coming-soon.html?f=Contact">Contact</a>
+      <a href="wasabirub.html">WasabiRub</a>
+      <a href="sports-medicine.html">For Professionals</a>
+    </nav>
   </header>
   <main>
     <section class="hero" id="top">
@@ -126,7 +173,7 @@
     <div><h3>Company</h3><a href="https://sportpharm.com/about/">About us</a><a href="https://sportpharm.com/contact/">Contact</a><p>© 2026 SportPharm</p></div>
   </footer>
   <script>
-    const menu=document.querySelector(".menu"),nav=document.querySelector(".nav");
+    const menu=document.querySelector(".menu"),nav=document.getElementById("mobilemenu2");
     menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open))});
     nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false")}));
   </script>

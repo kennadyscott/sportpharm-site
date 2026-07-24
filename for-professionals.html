@@ -116,14 +116,14 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 
 /* product band */
 .prod{background:var(--soft)}
-.prod-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:470px}
+.prod-grid{display:grid;grid-template-columns:.92fr 1.08fr;align-items:stretch;min-height:500px}
 .prod-copy{display:flex;align-items:center;padding:56px 48px 56px max(26px,calc((100vw - 1200px)/2 + 26px))}
 .prod-copy-in{max-width:460px}
 .prod h2{font-size:3.4rem;margin-bottom:14px;line-height:.92}
 .prod .kick{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:.02em;color:var(--sp-red);font-size:.92rem;margin-bottom:8px}
 .prod p{max-width:34ch;margin-bottom:24px}
-.prod-photo{position:relative;overflow:hidden;background:#e9eef4}
-.prod-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.prod-photo{position:relative;overflow:hidden;background:var(--soft)}
+.prod-photo img{width:100%;height:100%;object-fit:cover;object-position:68% center;display:block;-webkit-mask:linear-gradient(90deg,transparent 0,#000 30%);mask:linear-gradient(90deg,transparent 0,#000 30%)}
 @media(max-width:900px){.prod-grid{grid-template-columns:1fr}.prod-copy{padding:44px 26px}.prod-photo{min-height:300px}}
 
 /* pharmacy explained */

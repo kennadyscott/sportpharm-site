@@ -14,6 +14,7 @@
   --maxw:1200px;--shadow:0 20px 50px -26px rgba(16,41,74,.28);
 }
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
@@ -85,7 +86,7 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .hero-shield svg{width:26px;height:26px;color:#fff;opacity:.9}
 
 /* need today */
-.need{padding:44px 0}
+.need{padding:44px 0;scroll-margin-top:90px}
 .need .row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}
 .need-card{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:16px 18px;transition:.16s}
 .need-card:hover{box-shadow:var(--shadow);border-color:#d5dfec;transform:translateY(-2px)}
@@ -248,17 +249,17 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
   <div class="wrap">
     <div class="hero-copy">
     <h1 class="disp">Built for the way you move<span class="rp">.</span></h1>
-    <p class="sub">Expert guidance, recovery resources and athlete-focused pharmacy support&mdash;for training days, comeback days and everything in between.</p>
+    <p class="sub">Whether you&rsquo;re managing a nagging pain, getting back after an injury or trying to make smarter decisions about recovery, SportPharm helps you understand what to do next.</p>
     <div class="hero-cta">
-      <a class="btn btn-red" href="recovery.html">Explore Your Recovery</a>
-      <a class="link" href="wasabirub.html">Shop WasabiRub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-red" href="#pathways">Explore the Athlete Hub</a>
+      <a class="link" href="wasabirub.html">Products for Athletes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="hero-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Sports pharmacy expertise. Real-world athlete care.</div>
+    <div class="hero-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Sports pharmacy expertise. Practical guidance for real life.</div>
     </div>
   </div>
 </section>
 
-<section class="need">
+<section class="need" id="pathways">
   <div class="wrap">
     <h2 class="sec-h">What do you need today?</h2>
     <div class="row">

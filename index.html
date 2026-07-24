@@ -65,10 +65,11 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdro
 .mobilemenu .mrow{display:flex;gap:10px;margin-top:14px}
 
 /* hero */
-.hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(9,18,33,.94) 0%,rgba(9,18,33,.72) 42%,rgba(9,18,33,.25) 100%),url("assets/home-hero.png") center/cover no-repeat,#0b1e3b;min-height:520px;display:flex;align-items:center}
-.hero .wrap{padding-top:56px;padding-bottom:56px}
-.hero h1{font-size:5rem;max-width:13ch;margin-bottom:20px;color:#fff}
-.hero .sub{font-size:1.04rem;color:#dfe6ef;max-width:460px;margin:6px 0 28px;line-height:1.6}
+.hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(8,16,28,.97) 0%,rgba(8,16,28,.9) 28%,rgba(8,16,28,.62) 46%,rgba(8,16,28,.18) 66%,rgba(8,16,28,0) 82%),url("assets/home-hero.png") center/cover no-repeat,#0b1e3b;min-height:560px;display:flex;align-items:center}
+.hero .wrap{width:100%;padding-top:56px;padding-bottom:56px}
+.hero-copy{max-width:500px}
+.hero h1{font-size:4.3rem;max-width:12ch;margin-bottom:18px;color:#fff}
+.hero .sub{font-size:1.02rem;color:#dfe6ef;max-width:420px;margin:4px 0 26px;line-height:1.6}
 .hero-cta{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:30px}
 .hero-cta .link{display:inline-flex;align-items:center;gap:7px;color:#fff;font-family:'Bebas Neue',sans-serif;font-weight:400;text-transform:uppercase;font-size:1.02rem;letter-spacing:.06em}
 .hero-cta .link svg{width:15px;height:15px}
@@ -198,6 +199,7 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
   .split .grid{gap:30px}
   .pgrid{grid-template-columns:1fr}
   .hero h1{font-size:2.6rem}
+  .hero-copy{max-width:none}
 }
 @media(max-width:560px){.need .row{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}.final .wrap{flex-direction:column;align-items:flex-start}}
 </style>
@@ -232,6 +234,7 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
 
 <section class="hero">
   <div class="wrap">
+    <div class="hero-copy">
     <h1 class="disp">Built for the way you move<span class="rp">.</span></h1>
     <p class="sub">Expert guidance, recovery resources and athlete-focused pharmacy support&mdash;for training days, comeback days and everything in between.</p>
     <div class="hero-cta">
@@ -239,6 +242,7 @@ footer{background:#081428;color:#93a3b8;padding:52px 0 26px}
       <a class="link" href="wasabirub.html">Shop WasabiRub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <div class="hero-shield"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg> Sports pharmacy expertise. Real-world athlete care.</div>
+    </div>
   </div>
 </section>
 
